@@ -23,8 +23,8 @@
          }
         }
                
-           var_dump($shell);
-        	$con = new PDO("mysql:host=localhost; dbname=sollarProductDB",
+           //var_dump($shell);
+        	$con = new PDO("mysql:host=23.229.196.192; dbname=sollarProductDB",
 					"sollarsDBAdmin","+)4TeJm?!TS5");
 	        $con->setAttribute(PDO::ATTR_ERRMODE,
 						PDO::ERRMODE_EXCEPTION);
@@ -97,6 +97,7 @@
 
 											  <div class='form-control'>
 											  <input type='button' value='Search' onclick='getProducts()'>
+											  <input type='button' value='Reset' onclick='initialize()'>
 											  </div>
 											</form>\n"; 
 							
