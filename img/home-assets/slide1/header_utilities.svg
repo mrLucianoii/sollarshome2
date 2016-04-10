@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="133px"
+	 height="82px" viewBox="0 0 133 82" enable-background="new 0 0 133 82" xml:space="preserve">
+<g id="landing1">
+	<g id="Main_Body">
+	</g>
+	<g id="info_icons">
+	</g>
+</g>
+<g id="nav-Modal" display="none">
+	<g id="Main" display="inline">
+	</g>
+</g>
+<g id="Dashboard">
+	<g id="local_guides" display="none">
+	</g>
+	<line fill="none" stroke="#4caf50" stroke-width="2" stroke-miterlimit="10" x1="3" y1="77.3" x2="129" y2="77.3"/>
+	<g>
+		<path fill="#F2F2F2" d="M11.8,61.8c0,0.8,0,1.4,0.1,2.1c0.1,0.6,0.3,1.2,0.5,1.6c0.3,0.5,0.6,0.8,1.1,1.1c0.5,0.3,1,0.4,1.7,0.4
+			c0.7,0,1.3-0.1,1.8-0.4c0.4-0.3,0.8-0.6,1.1-1.1c0.3-0.5,0.4-1,0.5-1.6c0.1-0.6,0.1-1.3,0.1-2.1V40.9h6v20.9
+			c0,1.9-0.3,3.5-0.8,4.7c-0.5,1.2-1.2,2.2-2.1,3C21,70.3,20,70.7,18.9,71c-1.1,0.3-2.3,0.4-3.6,0.4c-1.2,0-2.4-0.1-3.6-0.3
+			s-2.2-0.7-3.1-1.4C7.8,69,7.1,68,6.5,66.8c-0.5-1.3-0.8-2.9-0.8-4.9V40.9h6V61.8z"/>
+		<path fill="#F2F2F2" d="M46.3,45.9h-6.6v25h-6v-25h-6.6v-5h19.2V45.9z"/>
+		<path fill="#F2F2F2" d="M49.1,40.9h6v30h-6V40.9z"/>
+		<path fill="#F2F2F2" d="M59.7,40.9h6v25h10.7v5H59.7V40.9z"/>
+		<path fill="#F2F2F2" d="M79.4,40.9h6v30h-6V40.9z"/>
+		<path fill="#F2F2F2" d="M107.5,45.9H101v25h-6v-25h-6.6v-5h19.2V45.9z"/>
+		<path fill="#F2F2F2" d="M118.9,52.5L118.9,52.5l4.3-11.6h6.6L122,59.1v11.8h-6V59.1l-7.8-18.2h6.8L118.9,52.5z"/>
+	</g>
+</g>
+<g id="Tree_Headers">
+</g>
+<g id="Dashboard_2" display="none">
+</g>
+<g id="Layer_2" display="none">
+</g>
+</svg>
