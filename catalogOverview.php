@@ -110,7 +110,13 @@
 						print "<br><br>\n";
 			print "<div style='position: relative; padding-bottom: 41px' class='container' id='results'>\n";
 
-			 foreach($products as $product){
+			if(count($products) <= 0){
+
+        		echo "<h1>NO RESULTS FOUND.</h1>";
+
+      		}
+      		else {
+      			foreach($products as $product){
 				
 				 
 					print "<div class='p-box col-sm-4 text-center'>\n";
@@ -129,6 +135,9 @@
 				
 						 }
 				
-			print "</div>\n";	
+			print "</div>\n";
+      		}
+
+			 	
 			
 ?>
