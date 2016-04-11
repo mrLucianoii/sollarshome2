@@ -151,7 +151,7 @@
 			if(document.querySelector('input[name = "master_bedroom"]:checked')){
 				document.querySelector('input[name = "master_bedroom"]:checked').checked = false;
 			}
-                str = "";
+                str = window.location.hash.split("#");
 
 				if (window.XMLHttpRequest) {
 					// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -165,7 +165,7 @@
 						document.getElementById("products").innerHTML = xmlhttp.responseText;
 					}
 				};
-				xmlhttp.open("GET","catalogOverview.php?q="+str,true);
+				xmlhttp.open("GET","catalogOverview.php?q="+str[1],true);
 				xmlhttp.send();
 			
 			//console.log("inside show products");
