@@ -113,6 +113,7 @@
 
 											  <div class='form-control'>
 											  <input type='button' value='Search' onclick='getProducts()'>
+											  <input type='button' value='Reset' onclick='initialize()'>
 											  </div>
 											</form>\n"; 
 							
@@ -125,10 +126,16 @@
 						print "<br><br>\n";
 			print "<ul id='homes-list' style='position: relative; padding-bottom: 41px' class='container' id='results'>\n";
 
-			 foreach($products as $product){
+			 if(count($products) <= 0){
+
+        		echo "<h1>NO RESULTS FOUND.</h1>";
+
+      		}
+      		else {
+      			foreach($products as $product){
 				
 				 
-					print "<li class='p-box col-sm-4 text-center'>\n";
+					print "<div class='p-box col-sm-4 text-center'>\n";
 						print "<div>\n";
 							print "<a href='homes.html#single-family/1'><img src=".$product->getUrl()." width='100%' height='auto' alt='Single Family Home'></a>\n";
 							
@@ -140,10 +147,11 @@
 							</p>\n";
                         
                        
-					print "</li>\n";
+					print "</div>\n";
 				
 						 }
 				
-			print "</ul>\n";	
+			print "</div>\n";
+      		}	
 			
 ?>

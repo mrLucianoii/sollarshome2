@@ -113,7 +113,7 @@
           if($masterBedroom == 'null'){
           $masterBedroom = NULL;
          }
-       $shell = "shell500";
+       $shell = $_GET['shell'];
         class Product {
           private $name;
           private $path2;
@@ -138,7 +138,7 @@
         }
         
 
-          $con = new PDO("mysql:host=localhost; dbname=sollarProductDB","sollarsDBAdmin","+)4TeJm?!TS5");
+          $con = new PDO("mysql:host=23.229.196.192; dbname=sollarProductDB","sollarsDBAdmin","+)4TeJm?!TS5");
           $con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
           $query = "SELECT name,priceOpt2,path2,squareFoot FROM Buildings where shellType = :shell ";

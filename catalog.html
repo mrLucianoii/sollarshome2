@@ -78,6 +78,8 @@
     <script>
     	function getProducts(){
     		//alert("Inside getProducts");
+    		var famShell = window.location.hash.split('#');
+
     		var data = {};
     		if(document.querySelector('input[name="cost"]:checked')){
     			data.cost = document.querySelector('input[name="cost"]:checked').value;
@@ -131,13 +133,52 @@
             xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                // alert(xmlhttp.responseText);
+               
                 document.getElementById("results").innerHTML = xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET","getProducts.php?minCost="+data.minCost+"&maxCost="+data.maxCost+"&bedroom="+data.bedroom+"&kitchen="+data.kitchen+"&bathroom="+data.bathroom+"&masterBedroom="+data.masterBedroom,true);
+        xmlhttp.open("GET","getProducts.php?minCost="+data.minCost+"&maxCost="+data.maxCost+"&bedroom="+data.bedroom+"&kitchen="+data.kitchen+"&bathroom="+data.bathroom+"&masterBedroom="+data.masterBedroom+"&shell="+famShell[1],true);
         xmlhttp.send({data : data});
     	}
 		
+		function initialize(){
+			//alert("inside initialize function");
+			if(document.querySelector('input[name = "cost"]:checked')){
+				document.querySelector('input[name = "cost"]:checked').checked = false;
+			}
+			if(document.querySelector('input[name = "bedroom"]:checked')){
+				document.querySelector('input[name = "bedroom"]:checked').checked = false;
+			}
+			if(document.querySelector('input[name = "kitchen"]:checked')){
+				document.querySelector('input[name = "kitchen"]:checked').checked = false;
+			}
+			if(document.querySelector('input[name = "bathroom"]:checked')){
+				document.querySelector('input[name = "bathroom"]:checked').checked = false;
+			}
+			if(document.querySelector('input[name = "master_bedroom"]:checked')){
+				document.querySelector('input[name = "master_bedroom"]:checked').checked = false;
+			}
+                str = window.location.hash.split("#");
+
+				if (window.XMLHttpRequest) {
+					// code for IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp = new XMLHttpRequest();
+				} else {
+					// code for IE6, IE5
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						document.getElementById("products").innerHTML = xmlhttp.responseText;
+					}
+				};
+				xmlhttp.open("GET","catalogOverview.php?q="+str[1],true);
+				xmlhttp.send();
+			
+			//console.log("inside show products");
+			
+		}
+
 		function showProducts(str) {
             console.log("Inside showProducts: "+str);
             
@@ -273,13 +314,14 @@
 	<main>
 			
 		
-     
+    
 
 <!--  ================ Products ============================-->
    <section id='products' class='white'>
-			<h1>Something is broken if you are seeing this :(</h1>
+			<h1>Something is broken if you are seeing this :( </h1>
 		
    </section>
+   
 	
         <script type="text/javascript"></script>
 <!--  ================ /products ============================-->
