@@ -101,7 +101,311 @@
 //            var_dump($products);
             $shellNameH1 = "All Availble Homes";
             $shellDescription = "We can build a custom Sollars Home™ having any size, shape or configuration. But some people already know what they are looking for, or don't have the budget, or time, to do a custom project from scratch. For these people, we offer a large catalog of model homes that can serve as starting points to spur creativity. These units are virtual model homes in the same sense that new home subdivisions offer model homes. Our base models come with upgraded standard appointments such as granite countertops, GE appliances, and Pella windows and doors. Any finish option can be selected, so if you see a feature or finish you like in one model home, it can be applied to another model just as easily. All units can be equipped with a full basement, and Sollars Home models can be widely customized to meet your needs. ";
+            if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom == null && $bathroom == null && $masterBedroom == null ){
+
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost";
+              //print $query;
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+          }
+
+          if($kitchen != null && $minCost ==null && $maxCost == null &&  $bedroomfd == null && $bathroom == null && $masterBedroom == null ){
+              $query = $query." WHERE kitchen = :kitchen ";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':kitchen' => $kitchen));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
             
+          }
+          
+         if($bedroom != null && $minCost==null && $maxCost==null && $kitchen == null &&  $bathroom == null && $masterBedroom == null ){
+              $query = $query." WHERE qtyRooms = :bedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':bedroom' => $bedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+            
+
+          }
+
+         if($bathroom != null && $minCost==null && $maxCost==null && $kitchen == null && $bedroom == null &&  $masterBedroom == null ){
+
+              $query = $query." WHERE qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+
+          } 
+         
+          if($masterBedroom != null && $minCost==null && $maxCost==null && $kitchen == null && $bedroom == null && $bathroom == null  ){
+
+              $query = $query." WHERE masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+
+
+          }
+           
+          // 2 combinations
+          if($minCost!=null && $maxCost!=null && $kitchen != null && $bedroom == null && $bathroom == null && $masterBedroom == null ){
+             
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and kitchen = :kitchen";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':kitchen' => $kitchen));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+              
+          }
+
+          if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom != null && $bathroom == null && $masterBedroom == null ){
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and qtyRooms = :bedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':bedroom' => $bedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+              
+          }
+          
+          if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom == null && $bathroom != null && $masterBedroom == null ){
+
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+
+              
+          }
+          
+          if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom == null && $bathroom == null && $masterBedroom != null ){
+
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+              
+          }
+
+          if($kitchen != null && $minCost ==null && $maxCost == null &&  $bedroom != null && $bathroom == null && $masterBedroom == null ){
+
+              $query = $query." WHERE kitchen = :kitchen and qtyRooms = :bedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':kitchen' => $kitchen, ':bedroom' => $bedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+            
+          }
+          if($kitchen != null && $minCost ==null && $maxCost == null &&  $bedroom == null && $bathroom != null && $masterBedroom == null ){
+               $query = $query." WHERE kitchen = :kitchen and qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':kitchen' => $kitchen, ':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+
+            
+          }
+          if($kitchen != null && $minCost ==null && $maxCost == null &&  $bedroom == null && $bathroom == null && $masterBedroom != null ){
+
+             $query = $query." WHERE kitchen = :kitchen and masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':kitchen' => $kitchen, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+            
+          }
+
+          if($bedroom != null && $minCost==null && $maxCost==null && $kitchen == null &&  $bathroom != null && $masterBedroom == null ){
+
+            $query = $query." WHERE qtyRooms = :bedroom and qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':bedroom' => $bedroom, ':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+
+          }
+
+          if($bedroom != null && $minCost==null && $maxCost==null && $kitchen == null &&  $bathroom == null && $masterBedroom != null ){
+
+            $query = $query." WHERE qtyRooms = :bedroom and masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':bedroom' => $bedroom, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+
+
+          }
+
+          if($bathroom != null && $minCost==null && $maxCost==null && $kitchen == null && $bedroom == null &&  $masterBedroom != null ){
+
+            $query = $query." WHERE qtyBath = :bathroom and masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':bathroom' => $bathroom, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+
+          } 
+
+          // 3 combinations
+          if($minCost!=null && $maxCost!=null && $kitchen != null && $bedroom != null && $bathroom == null && $masterBedroom == null ){
+             $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and kitchen = :kitchen and qtyRooms = :bedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':kitchen' => $kitchen, ':bedroom' => $bedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+              
+          }
+
+          if($minCost!=null && $maxCost!=null && $kitchen != null && $bedroom == null && $bathroom != null && $masterBedroom == null ){
+
+            $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and kitchen = :kitchen and qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':kitchen' => $kitchen, ':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+
+              
+          }
+
+          if($minCost!=null && $maxCost!=null && $kitchen != null && $bedroom == null && $bathroom == null && $masterBedroom != null ){
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and kitchen = :kitchen and masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':kitchen' => $kitchen, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+              
+          }
+
+           if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom != null && $bathroom != null && $masterBedroom == null ){
+
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and qtyRooms = :bedroom and qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':bedroom' => $bedroom, ':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+          }
+           if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom != null && $bathroom == null && $masterBedroom != null ){
+              
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and qtyRooms = :bedroom and masterBedroom= :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':bedroom' => $bedroom, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+          }
+          if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom == null && $bathroom != null && $masterBedroom != null ){
+
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and masterBedroom = :masterBedroom and qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':masterBedroom' => $masterBedroom, ':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+          }
+
+          if($kitchen != null && $minCost ==null && $maxCost == null &&  $bedroom != null && $bathroom != null && $masterBedroom == null ){
+                $query = $query." WHERE kitchen = :kitchen and qtyRooms = :bedroom and qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':kitchen' => $kitchen, ':bedroom' => $bedroom, ':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+        
+            
+          }
+
+          if($kitchen != null && $minCost ==null && $maxCost == null &&  $bedroom != null && $bathroom == null && $masterBedroom != null ){
+
+             $query = $query." WHERE kitchen = :kitchen and qtyRooms = :bedroom and masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':kitchen' => $kitchen, ':bedroom' => $bedroom, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+            
+          }
+
+          if($kitchen != null && $minCost ==null && $maxCost == null &&  $bedroom == null && $bathroom != null && $masterBedroom != null ){
+
+             $query = $query." WHERE kitchen = :kitchen and masterBedroom = :masterBedroom and qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':kitchen' => $kitchen, ':masterBedroom' => $masterBedroom, ':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+            
+          }
+
+          if($bedroom != null && $minCost==null && $maxCost==null && $kitchen == null &&  $bathroom != null && $masterBedroom != null ){
+
+             $query = $query." WHERE masterBedroom = :masterBedroom and qtyRooms = :bedroom and qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':masterBedroom' => $masterBedroom, ':bedroom' => $bedroom, ':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+
+          }
+
+          // 4 combinations
+
+         if($minCost!=null && $maxCost!=null && $kitchen != null && $bedroom != null && $bathroom != null && $masterBedroom == null ){
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and kitchen = :kitchen and qtyRooms = :bedroom and qtyBath = :bathroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':kitchen' => $kitchen, ':bedroom' => $bedroom, ':bathroom' => $bathroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+              
+          }
+
+          if($minCost!=null && $maxCost!=null && $kitchen != null && $bedroom != null && $bathroom == null && $masterBedroom != null ){
+
+            $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and kitchen = :kitchen and qtyRooms = :bedroom and masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':kitchen' => $kitchen, ':bedroom' => $bedroom, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+
+              
+          }
+
+          if($minCost!=null && $maxCost!=null && $kitchen != null && $bedroom == null && $bathroom != null && $masterBedroom != null ){
+
+               $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and kitchen = :kitchen and qtyBath = :bathroom and masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':kitchen' => $kitchen, ':bathroom' => $bathroom, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+          }
+
+          if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom != null && $bathroom != null && $masterBedroom == null ){
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and qtyRooms = :bedroom and qtyBath = :bathroom and masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':bedroom' => $bedroom, ':bathroom' => $bathroom, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+              
+          }
+
+          if($kitchen != null && $minCost ==null && $maxCost == null &&  $bedroom != null && $bathroom != null && $masterBedroom != null ){
+            $query = $query." WHERE kitchen = :kitchen and qtyRooms = :bedroom and qtyBath = :bathroom and masterBedroom = :masterBedroom";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':kitchen' => $kitchen, ':bedroom' => $bedroom, ':bathroom' => $bathroom, ':masterBedroom' => $masterBedroom));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+          }
+
+
+        
+            //5 combinations
+
+          if($minCost!=null && $maxCost!= null && $kitchen != null && $bedroom != null && $bathroom != null && $masterBedroom != null ){
+
+              $query = $query." WHERE priceOpt2 >= :minCost and priceOpt2 <= :maxCost and qtyRooms = :bedroom and qtyBath = :bathroom and masterBedroom = :masterBedroom and kitchen = :kitchen";
+              $ps = $con->prepare($query);
+              $ps->execute(array(':minCost' => $minCost, ':maxCost' => $maxCost, ':bedroom' => $bedroom, ':bathroom' => $bathroom, ':masterBedroom' => $masterBedroom, ':kitchen' => $kitchen));
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+          }
             
         }else { 
             
@@ -124,7 +428,7 @@
 
             $shellDescription = $shellDesc[0]['desc'];
             $shellNameH1 =  ucfirst($shellDesc[0]['fullName']);
-        }
+        
 
          if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom == null && $bathroom == null && $masterBedroom == null ){
 
@@ -432,7 +736,7 @@
               $products = $ps->fetchAll();
           }
           
-        
+        }
         print "<section class='greenMe greenMe2'>";
 			print "<h1 style='text-align:center'>FAMILY GALERY</h1><br>\n";
 			print "<img id='greenLine' src='img/patented/whiteLine.png' width='98' height='11'><br>\n";
