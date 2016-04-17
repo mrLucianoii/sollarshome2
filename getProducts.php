@@ -1,66 +1,9 @@
-<!--
-   _  _           _______.     ______       __          __      _______  
- _| || |_        /       |    /  __  \     |  |        |  |    |       \ 
-|_  __  _|      |   (----`   |  |  |  |    |  |        |  |    |  .--.  |
- _| || |_        \   \       |  |  |  |    |  |        |  |    |  |  |  |
-|_  __  _|   .----)   |      |  `--'  |    |  `----.   |  |    |  '--'  |
-  |_||_|     |_______/        \______/     |_______|   |__|    |_______/ 
-                                                                         
- _______   _______      _______. __    _______ .__   __.      _______.   
-|       \ |   ____|    /       ||  |  /  _____||  \ |  |     /       |   
-|  .--.  ||  |__      |   (----`|  | |  |  __  |   \|  |    |   (----`   
-|  |  |  ||   __|      \   \    |  | |  | |_ | |  . `  |     \   \       
-|  '--'  ||  |____ .----)   |   |  | |  |__| | |  |\   | .----)   |      
-|_______/ |_______||_______/    |__|  \______| |__| \__| |_______/       
-                                                                        
-                                                                      -->
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-		
-	    <meta name="keywords"           content="">
-	    <meta name="description"        content="">
-	    <meta name="author"             content="">
-	    <meta name="designer"           content="">
-	    <meta property="fb:admins"      content="">
-	    <meta property="og:type"        content="Business Website">
-	    <meta property="og:url"         content="http://www.SollarsHome.com">
-	    <meta property="og:image"       content="img/landing/home-landing.jpg">
-	    <meta property="og:title"       content=" Sollars Home™">
-	    <meta property="og:description" content="At Sollars Home™, we are custom builders at heart. We can build a Sollars Home™ of practically any size, shape, or configuration you can envision. We also offer pre-designed standard buildings for specific uses that are terrific values; truly Luxury Made Affordable. ">
-       
-	   <link rel="icon" type="image/png"
-	    href="sollars-tab-icon.png" />
-	   
-	    <title>family Gallery</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="sollars-tab-icon.png">
-		
-        <script src="js/lib/jquery.min.js"></script>
-        <script src="js/ezLoader.js"></script>
 
-
-
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-		<!-- #SOLID Style Sheets -->
-		<link rel="stylesheet" href="css/fonts.css">
-		<link rel="stylesheet" href="css/sollar.css">
-
-        <link rel="stylesheet" href="css/home.css">
-		<link rel="stylesheet" href="css/archs.css">
-        <link rel="stylesheet" href="css/global.css">
-		
-    </head>
-
-    <body>
 
     	 <?php
-          
+        
+        $inputs = $_GET;
+        
     	   
          if(isset($_GET['minCost']))
          {
@@ -114,6 +57,7 @@
           $masterBedroom = NULL;
          }
        $shell = $_GET['shell'];
+        
         class Product {
           private $name;
           private $path2;
@@ -137,14 +81,52 @@
          }
         }
         
+        class Family {
+            
+        }
 
           $con = new PDO("mysql:host=23.229.196.192; dbname=sollarProductDB","sollarsDBAdmin","+)4TeJm?!TS5");
           $con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        
+           
+        if ($shell == 'all'){
+            
+             $query = "SELECT name,priceOpt2,path2,squareFoot FROM Buildings";
+              //print $query;
+              $ps = $con->prepare($query);
+              $ps->execute();
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+            
+//            var_dump($products);
+            $shellNameH1 = "All Availble Homes";
+            $shellDescription = "We can build a custom Sollars Home™ having any size, shape or configuration. But some people already know what they are looking for, or don't have the budget, or time, to do a custom project from scratch. For these people, we offer a large catalog of model homes that can serve as starting points to spur creativity. These units are virtual model homes in the same sense that new home subdivisions offer model homes. Our base models come with upgraded standard appointments such as granite countertops, GE appliances, and Pella windows and doors. Any finish option can be selected, so if you see a feature or finish you like in one model home, it can be applied to another model just as easily. All units can be equipped with a full basement, and Sollars Home models can be widely customized to meet your needs. ";
+            
+            
+        }else { 
+            
+            $query = "SELECT name,priceOpt2,path2,squareFoot FROM Buildings where shellType = :shell ";
+            $ps = $con->prepare($query);
 
-          $query = "SELECT name,priceOpt2,path2,squareFoot FROM Buildings where shellType = :shell ";
-          $products = array();
 
-          if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom == null && $bathroom == null && $masterBedroom == null ){
+            // Fetch matching row.
+            $ps->execute(array(':shell' => $shell));
+            $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+            $products = $ps->fetchAll();
+
+            $queryDesc = "SELECT * FROM Shell where name = :shell";
+
+            $ds = $con->prepare($queryDesc);
+
+            $ds->execute(array(':shell' => $shell));
+            $ds->setFetchMode(PDO::FETCH_ASSOC);
+            $shellDesc = $ds->fetchAll();
+
+            $shellDescription = $shellDesc[0]['desc'];
+            $shellNameH1 =  ucfirst($shellDesc[0]['fullName']);
+        }
+
+         if($minCost!=null && $maxCost!=null && $kitchen == null && $bedroom == null && $bathroom == null && $masterBedroom == null ){
 
               $query = $query."and priceOpt2 >= :minCost and priceOpt2 <= :maxCost";
               //print $query;
@@ -154,7 +136,7 @@
               $products = $ps->fetchAll();
           }
 
-          if($kitchen != null && $minCost ==null && $maxCost == null &&  $bedroom == null && $bathroom == null && $masterBedroom == null ){
+          if($kitchen != null && $minCost ==null && $maxCost == null &&  $bedroomfd == null && $bathroom == null && $masterBedroom == null ){
               $query = $query."and kitchen = :kitchen ";
               $ps = $con->prepare($query);
               $ps->execute(array(':shell' => $shell, ':kitchen' => $kitchen));
@@ -449,18 +431,89 @@
               $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
               $products = $ps->fetchAll();
           }
+          
+        
+        print "<section class='greenMe greenMe2'>";
+			print "<h1 style='text-align:center'>FAMILY GALERY</h1><br>\n";
+			print "<img id='greenLine' src='img/patented/whiteLine.png' width='98' height='11'><br>\n";
+            
+                    print "<div class='dropdown'>
+                          <button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Model Types
+                          <span class='caret'></span></button>
+                          <ul class='dropdown-menu'>
+                            <li><a href='catalog.html#eichler' onclick='location.reload()'>Eichler</a></li>
+                            <li><a href='catalog.html#secondUnit' onclick='location.reload()'>2nd Units</a></li>
+                            <li><a href='catalog.html#singleRanch' onclick='location.reload()'>Ranch</a></li>
+                            <li><a href='catalog.html#clere' onclick='location.reload()'>Clearstory</a></li>
+                            <li><a href='catalog.html#garages' onclick='location.reload()'>Garage</a></li>
+                            <li><a href='catalog.html#all' onclick='location.reload()'>Show All </a></li>
+                        </ul>
+                        </div><br>";
+				
+            print "</section>";	
+				print "<section id='filter' class='container'>\n";
 
+				print "<div class='row'>\n";
+				 
+					print "<div class='col-md-6'>\n";
+						      print "<h2 style='padding-top: 0; font-weight: 500; font-size: 22px; color: #727272'>".$shellNameH1."</h2>";
+							print "<p style='text-align:justify'>".$shellDescription."<p>\n";
+                        
+                       
+						print "</div>\n"; // column
+						
+						print "<div style='margin-top: 29px;' class='col-md-6'>\n";
+						
+						print	"<form action='' method='post'>
+											  <div class='form-control'>
+											  <label for = 'cost'><b>COST:</b></label>
+											  <input type='radio' name='cost' value='50000- 60000'> $50K-$60K 
+											  <input type='radio' name='cost' value='60000-70000'> $60K-$70K 
+											  <input type='radio' name='cost' value='70000-80000'> $70K-$80K 
+											  </div>
 
+											  <div class='form-control'>
+											  <label for = 'bedroom'><b>BEDROOM:</b></label>
+											  <input type='radio' name='bedroom' value='1'> 1
+											  <input type='radio' name='bedroom' value='2'> 2
+											  <input type='radio' name='bedroom' value='3'> 3
+											  <input type='radio' name='bedroom' value='4'> 4
+											  <input type='radio' name='bedroom' value='5'> 5 
+											  </div>
 
+											  <div class='form-control'>
+											  <label for = 'kitchen'><b>KITCHEN</b></label>
+											  <input type='radio' name='kitchen' value='yes'> Yes
+											  <input type='radio' name='kitchen' value='no'> No 
+											  </div>
 
-         
-       
+											  <div class='form-control'>
+											  <label for = 'bathroom'><b>BATHROOM:</b></label>
+											  <input type='radio' name='bathroom' value='1'> 1
+											  <input type='radio' name='bathroom' value='2'> 2
+											  <input type='radio' name='bathroom' value='3'> 3
+											  </div>
+											  
+											  <div class='form-control'>
+											  <label for = 'master_bedroom'><b>MASTER BEDROOM</b></label>
+											  <input type='radio' name='master_bedroom' value='yes'> Yes
+											  <input type='radio' name='master_bedroom' value='no'> No 
+											  </div>
 
-         
+											  <div class='sd-form-control'>
+											  <input class='btn btn-secondary' type='button' value='Search' onclick='getProducts()'>
+											  <input class='btn btn-secondary' type='button' value='Reset' onclick='initialize()'>
+											  </div>
+											</form>\n"; 
+							
+                        
+                       
+						print "</div>\n"; // column
+						print "</div>\n";  //row
+						print "</section>\n"; // container
 
-        //var_dump($products);
+						print "<br><br>\n";
 
-		
       if(count($products) <= 0){
 
         echo "<h1>NO RESULTS FOUND.</h1>";
@@ -473,25 +526,22 @@
         foreach($products as $product){
 				
 				 
-					echo "<div class='p-box col-sm-4 text-center'>\n";
-						echo "<div id='img-circle'>\n";
-							echo "<a href='homes.html#single-family/1'><img src=".$product->getUrl()." width='82.33%' height='auto' alt='Single Family Home'></a>\n";
+				print "<div class='p-box col-sm-4 text-center'>\n";
+						print "<div id='h-box'>\n";
+							print "<a href='homes.html#single-family/1'><img src=".$product->getUrl()." width='100%' height='auto' alt='Single Family Home'></a>\n";
 							
-						echo "</div>\n";
-							echo "<h3>".$product->getName()."</h3>\n";
-							echo "<p>
+						print "</div>\n";
+							print "<h3>".$product->getName()."</h3>\n";
+							print "<p>
                               <strong>Base Price:</strong>".$product->getBasePrice()." USD</p>
                               <p><strong>SF:</strong>".$product->getSF()." SF
 							</p>\n";
                         
                        
-					echo "</div>\n";
+					print "</div>\n";
 						 }
 				
 				}
 			
 				?>
 
-
-    </body>
-    </html>

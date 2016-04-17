@@ -24,6 +24,10 @@
          public function getSF(){
           return $this->squareFoot;
          }
+    
+        public function getDesc(){
+            return $this->desc;
+        }
         }
                
            //var_dump($shell);
@@ -32,48 +36,75 @@
 	        $con->setAttribute(PDO::ATTR_ERRMODE,
 						PDO::ERRMODE_EXCEPTION);
 
+         
+        if ($shell == 'all'){
+            
+             $query = "SELECT name,priceOpt2,path2,squareFoot FROM Buildings where 1 ";
+              //print $query;
+              $ps = $con->prepare($query);
+              $ps->execute();
+              $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
+              $products = $ps->fetchAll();
+            
+//            var_dump($products);
+            $shellNameH1 = "All Availble Homes";
+            $shellDescription = "We can build a custom Sollars Home™ having any size, shape or configuration. But some people already know what they are looking for, or don't have the budget, or time, to do a custom project from scratch. For these people, we offer a large catalog of model homes that can serve as starting points to spur creativity. These units are virtual model homes in the same sense that new home subdivisions offer model homes. Our base models come with upgraded standard appointments such as granite countertops, GE appliances, and Pella windows and doors. Any finish option can be selected, so if you see a feature or finish you like in one model home, it can be applied to another model just as easily. All units can be equipped with a full basement, and Sollars Home models can be widely customized to meet your needs. ";
+            
+            
+        }else {
             $query = "SELECT name,priceOpt2,path2,squareFoot FROM Buildings where shellType = :shell ";
 	        $ps = $con->prepare($query);
-
-
+            
+            
 			// Fetch matching row.
 			$ps->execute(array(':shell' => $shell));
 			$ps->setFetchMode(PDO::FETCH_CLASS, "Product");
 			$products = $ps->fetchAll();
+          
+         $queryDesc = "SELECT * FROM Shell where name = :shell";
+         
+          $ds = $con->prepare($queryDesc);
+          
+          $ds->execute(array(':shell' => $shell));
+          $ds->setFetchMode(PDO::FETCH_ASSOC);
+          $shellDesc = $ds->fetchAll();
+            
+            $shellDescription = $shellDesc[0]['desc'];
+            $shellNameH1 =  ucfirst($shellDesc[0]['fullName']);
+        }
 
-        
-
-            //var_dump($con);
-
-			print "<h1 style='text-align:center'>FAMILY GALLERY</h1><br>\n";
-			print "<img id='greenLine' src='img/our-vision/greenLine.png' width='98' height='11'><br>\n";
-
+           // print_r(array_values($products));
+            print "<section class='greenMe greenMe2'>";
+			print "<h1 style='text-align:center'>FAMILY GALERY</h1><br>\n";
+			print "<img id='greenLine' src='img/patented/whiteLine.png' width='98' height='11'><br>\n";
+            
                     print "<div class='dropdown'>
                           <button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Model Types
                           <span class='caret'></span></button>
                           <ul class='dropdown-menu'>
-                            <li><a href='catalog.html#eichler'>Eichler</a></li>
-                            <li><a href='catalog.html#secondUnit'>2nd Units</a></li>
-                            <li><a href='catalog.html#singleRanch'>Ranch</a></li>
-                            <li><a href='catalog.html#clere'>Clearstory</a></li>
-                            <li><a href='catalog.html#garages'>Garage</a></li>
-                            <li><a href='catalog.html#all'>Show All </a></li>
+                            <li><a href='catalog.html#eichler' onclick='location.reload()'>Eichler</a></li>
+                            <li><a href='catalog.html#secondUnit' onclick='location.reload()'>2nd Units</a></li>
+                            <li><a href='catalog.html#singleRanch' onclick='location.reload()'>Ranch</a></li>
+                            <li><a href='catalog.html#clere' onclick='location.reload()'>Clearstory</a></li>
+                            <li><a href='catalog.html#garages' onclick='location.reload()'>Garage</a></li>
+                            <li><a href='catalog.html#all' onclick='location.reload()'>Show All </a></li>
                         </ul>
                         </div><br>";
-					
-				print "<div class='container'>\n";
+				
+            print "</section>";	
+				print "<section id='filter' class='container'>\n";
 
 				print "<div class='row'>\n";
 				 
 					print "<div class='col-md-6'>\n";
-						
-							print "<p style='text-align:justify'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>\n";
+						      print "<h2 style='padding-top: 0; font-weight: 500; font-size: 22px; color: #727272'>".$shellNameH1."</h2>";
+							print "<p style='text-align:justify'>".$shellDescription."<p>\n";
 							
                         
                        
 						print "</div>\n"; // column
 						
-						print "<div class='col-md-6'>\n";
+						print "<div style='margin-top: 29px;' class='col-md-6'>\n";
 						
 						print	"<form action='' method='post'>
 											  <div class='form-control'>
@@ -111,9 +142,9 @@
 											  <input type='radio' name='master_bedroom' value='no'> No 
 											  </div>
 
-											  <div class='form-control'>
-											  <input type='button' value='Search' onclick='getProducts()'>
-											  <input type='button' value='Reset' onclick='initialize()'>
+											  <div class='sd-form-control'>
+											  <input class='btn btn-secondary' type='button' value='Search' onclick='getProducts()'>
+											  <input class='btn btn-secondary' type='button' value='Reset' onclick='initialize()'>
 											  </div>
 											</form>\n"; 
 							
@@ -121,12 +152,11 @@
                        
 						print "</div>\n"; // column
 						print "</div>\n";  //row
-						print "</div>\n"; // container
+						print "</section>\n"; // container
 
 						print "<br><br>\n";
-			print "<ul id='homes-list' style='position: relative; padding-bottom: 41px' class='container' id='results'>\n";
 
-			 if(count($products) <= 0){
+        if(count($products) <= 0){
 
         		echo "<h1>NO RESULTS FOUND.</h1>";
 
@@ -136,7 +166,7 @@
 				
 				 
 					print "<div class='p-box col-sm-4 text-center'>\n";
-						print "<div>\n";
+						print "<div id='h-box'>\n";
 							print "<a href='homes.html#single-family/1'><img src=".$product->getUrl()." width='100%' height='auto' alt='Single Family Home'></a>\n";
 							
 						print "</div>\n";
@@ -151,7 +181,6 @@
 				
 						 }
 				
-			print "</div>\n";
       		}	
 			
 ?>

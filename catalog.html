@@ -51,8 +51,6 @@
 		<link rel="stylesheet" href="css/fonts.css">
 		<link rel="stylesheet" href="css/sollar.css">
 
-        <link rel="stylesheet" href="css/home.css">
-		<link rel="stylesheet" href="css/archs.css">
         <link rel="stylesheet" href="css/global.css">
         <link rel="stylesheet" href="css/catalog.css">
 		
@@ -77,7 +75,6 @@
 			
     <script>
     	function getProducts(){
-    		//alert("Inside getProducts");
     		var famShell = window.location.hash.split('#');
 
     		var data = {};
@@ -134,11 +131,20 @@
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                // alert(xmlhttp.responseText);
                
-                document.getElementById("results").innerHTML = xmlhttp.responseText;
+                document.getElementById("products").innerHTML = xmlhttp.responseText;
+
             }
         };
+            
+        console.log("Data Object:  "+ data.cost);
+        console.log(this);
+        console.log(); 
+            
         xmlhttp.open("GET","getProducts.php?minCost="+data.minCost+"&maxCost="+data.maxCost+"&bedroom="+data.bedroom+"&kitchen="+data.kitchen+"&bathroom="+data.bathroom+"&masterBedroom="+data.masterBedroom+"&shell="+famShell[1],true);
         xmlhttp.send({data : data});
+            
+                console.log(xmlhttp.responseText);
+
     	}
 		
 		function initialize(){
@@ -207,10 +213,11 @@
 			console.log("inside show products");
 
 		}
-		
+        
         var famShell = window.location.hash.split('#'); 
 		
         showProducts(famShell[1]);
+        
         
     </script>
         <!--[if lt IE 8]>
@@ -234,14 +241,14 @@
 	                <li>
 	                    <a href="index.html#patent">PATENTED TECHNOLOGY</a>
 	                </li>
+                     <li>
+	                    <a href="index.html#who-we-serve" >WHO WE SERVE</a>
+	                </li>
 	                <li>
-	                    <a href="index.html#products">NEW HOME PRODUCTS</a>
+	                    <a href="index.html#products">MODEL HOMES</a>
 	                </li>
 	                <li>
 	                    <a href="index.html#our-vision">OUR VISION</a>
-	                </li>
-	                <li>
-	                    <a href="index.html#who-we-serve" >WHO WE SERVE</a>
 	                </li>
 	                <li>
 	                    <a href="index.html#about-us" >ABOUT US</a>
@@ -273,37 +280,40 @@
 	   </div>	
     	<div class="navbar navbar-fixed-top" >
 			<div class="row" id="t-top">
-				<div class="t-top">
+				<div class="t-top" id="">
+					<a  data-toggle="modal" data-target="#last"><button id="lastVid">Closing Video[Name]</button></a>
+				</div><!-- /top nav -->
+
+                <div class="t-top">
 					<a  href="tel:+18447655277"><button id="call"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button></a>
 				</div><!-- /top nav -->
 			</div><!-- /row -->
-			
 		
 			<!-- Future themes I may use this design concept 	<img id="logo-cent" src="img/logo/mcGuinn-logo-center.svg"> -->
 				<a href="index.html#welcome"><img id="logo-left" src="img/logo/sollars-home.svg"></a>
     		<div id="navWords" class='text-right'>
 	            <ul role="navigation" class="row text-right">
-	            	<li>
-	                	<a href="index.html">WELCOME</a>
+	              <li>
+	                	<a href="index.html#welcome">WELCOME</a>
 	                </li>
 	                <li>
 	                    <a href="index.html#patent">PATENTED TECHNOLOGY</a>
 	                </li>
+                     <li>
+	                    <a href="index.html#who-we-serve" >WHO WE SERVE</a>
+	                </li>
 	                <li>
-	                    <a href="index.html#products">NEW HOME PRODUCTS</a>
+	                    <a href="index.html#products">MODEL HOMES</a>
 	                </li>
 	                <li>
 	                    <a href="index.html#our-vision">OUR VISION</a>
 	                </li>
 	                <li>
-	                    <a href="index.html#who-we-serve" >WHO WE SERVE</a>
-	                </li>
-	                <li>
 	                    <a href="index.html#about-us" >ABOUT US</a>
 	                </li>
-                       <li id="contactB">
-                           <a href="index.html#contact" >CONTACT US</a>
-	                   </li>           
+                       <li>
+	                    <a href="index.html#contact" >CONTACT US</a>
+	                </li>
 	             </ul>
 			</div>
 	  		 <p id="solid-window"></p>
@@ -317,11 +327,33 @@
     
 
 <!--  ================ Products ============================-->
-   <section id='products' class='white'>
-			<h1>Something is broken if you are seeing this :( </h1>
-		
+        <h1 style='text-align:center'>FAMILY GALLERY</h1>
+        <img id='greenLine' src='img/our-vision/greenLine.png' width='98' height='11'>
+        <div class='dropdown'>
+                          <button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Model Types
+                          <span class='caret'></span></button>
+                          <ul class='dropdown-menu'>
+                            <li><a class='home' href='#' onclick='location.reload()'>Eichler</a></li>
+                            <li><a href='catalog.html#secondUnit'>2nd Units</a></li>
+                            <li><a href='catalog.html#singleRanch'>Ranch</a></li>
+                            <li><a href='catalog.html#clere'>Clearstory</a></li>
+                            <li><a href='catalog.html#garages'>Garage</a></li>
+                            <li><a href='catalog.html#all'>Show All </a></li>
+                        </ul>
+                        </div>
+        
+   <section id='' class='white'>
+       
+       <div id='products'>
+           <section class='greenMe greenMe2'>
+			<h1 style='text-align:center'>Fetching your future :) </h1>
+           </section>
+			
+       </div>
+        <ul id='homes-list' style='position: relative; padding-bottom: 41px' class='container' id='results'>
+        </ul>
+       
    </section>
-   
 	
         <script type="text/javascript"></script>
 <!--  ================ /products ============================-->
@@ -396,7 +428,7 @@
     <script src="js/vendor/jquery.endless-scroll.js"></script>
 
 <script>
-$(document).ready(function() {
+/*$(document).ready(function() {
 	$(window).endlessScroll({
 		inflowPixels: 300,
 		callback: function() {
@@ -404,7 +436,8 @@ $(document).ready(function() {
 			last.after(last.prev().prev().prev().prev().clone());
 		}
 	});
-});       
+});      */
+
 
 </script>
        

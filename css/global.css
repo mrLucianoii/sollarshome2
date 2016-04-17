@@ -524,6 +524,17 @@ button#call {
 	border: none;
 	border-radius: 0;
 }
+button#lastVid{
+    color: #ffffff;
+    background-color: #4caf50;
+    font-size: 15px;
+    padding: 3px 13px 4px;
+    position: absolute;
+    top: 0;
+    left: 33px;
+    border: none;
+    border-radius: 0;
+}
 .glyphicon .glyphicon-earphone {
 	top: 2px;
 }
