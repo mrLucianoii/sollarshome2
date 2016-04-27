@@ -4,8 +4,46 @@
 
 
  
- 
-  // Support hover state for mobile.
+ console.log(document.body.clientHeight);
+    
+var tubeHeight = document.body.clientHeight,
+    tubeWidth = document.body.clientWidth,
+    $iframe = document.getElementsByTagName('iframe');
+
+//    console.log($iframe[0]);
+
+//    $iframe.height = tubeHeight;
+//    $iframe.width = tubeWidth;
+
+    function imResized() {
+        
+        console.log("Im resizing Width and Height:" + tubeHeight + " & " + tubeWidth);
+        tubeHeight = document.body.clientHeight;
+        tubeWidth = document.body.clientWidth;
+        
+        var $iframe = document.querySelectorAll('iframe');
+        
+        console.log(document.querySelectorAll('iframe')[0].width);
+        console.log(document.querySelectorAll('iframe').length);
+        
+        for (var i=0; i < $iframe.length; i++){
+            
+            $iframe[i].width = tubeWidth;
+            $iframe[i].height = tubeHeight;
+            
+        }
+        
+        onYouTubeIframeAPIReady();
+        
+    }
+
+    window.onresize = imResized;
+
+    
+ console.log("Client Height: " + tubeHeight);
+ console.log("Client Width: " + tubeWidth);
+
+ // Support hover state for mobile.
   if (false) {
     window.ontouchstart = function(){};
   } 
@@ -22,13 +60,21 @@
     function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
           videoId: 'pRwLE6J-0lg',
+          height: tubeHeight,
+          width: tubeWidth,
+          playerVars: {
+            'showinfo': 0
+          },    
           events: {
             'onReady': '',
-            'onStateChange': onPlayerStateChange
+            'onStateChange': onPlayerStateChange,
+
           }
         });
         player2 = new YT.Player('player2', {
           videoId: 'ab8K1w2R7zg',
+          height: tubeHeight,
+          width: tubeWidth,
           events: {
             'onReady': '',
             'onStateChange': ''
@@ -48,7 +94,9 @@
           done = true;
         }
       }
-      function stopVideo(video) {
+      
+    function stopVideo(video) {
+        console.log(video);
         video.stopVideo();
       }
 
@@ -86,7 +134,17 @@ jQuery(document).ready(function ($) {
        $('body,section#welcomeVid, #menu-toggle').addClass('on');
         
     });*/
-     
+    
+    $('a#action').on('mouseover', function(e){
+        $('a#action h1').addClass('grow');
+        
+    });
+    
+     $('a#action').on('mouseout', function(e){
+        $('a#action h1').removeClass('grow');
+        
+    });
+    
     $("a#closeWelc, a.glyphicon-chevron-down").on('click', function(e){
         stopVideo(player);
 
@@ -103,21 +161,32 @@ jQuery(document).ready(function ($) {
 
     });
     
-    function stopModalmovie($this){
-        var $iframe = $($this).find('iframe')[0].id;
-        console.log(window[$iframe]);
+    function stopModalmovie(){
+        var $iframe = $('body').find('iframe');
         
-        stopVideo(window[$iframe]);
+        console.log($($iframe));
+        
+        for (var i=0; i < $($iframe).length; i++){
+            
+            
+            
+        }
+        
+       // stopVideo(window[$iframe]);
            
     }
         $('.videoPops').on('show.bs.modal', function (e) {
             
+
+            
         });
 
-    $('#powerVid').on('hide.bs.modal', function (e) {
+    $('body').on('hide.bs.modal', function (e) {
         console.log( 'testing model close function' );
         
-        stopModalmovie(this);
+        
+        stopModalmovie();
+        
     });    
     
     if ( window.location.hash === ""  ) {

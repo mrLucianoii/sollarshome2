@@ -18,36 +18,37 @@
  */
 
 // Shells have been set
-var shell500 = new Shell(),
-    shell1280 = new Shell(),
-    shell4000 = new Shell(),
+var eichler = new Shell(),
+    singleRanch = new Shell(),
     garages = new Shell(),
-    emptyShell = new Shell(),
-    shellFam = [ shell500, shell1280, shell4000, garages ];
+    secondUnit = new Shell(),
+    clere = new Shell(),
+    shellFam = [ eichler, singleRanch, garages, secondUnit, clere ];
 
 
 /******* Update shell names ***/    
 
-    shell500.name = 'shell600';
-    shell1280.name = 'shell1280';
-    shell4000.name = 'shell2200';
+    eichler.name = 'eichler';
+    singleRanch.name = 'singleRanch';
     garages.name = 'garages';
+    secondUnit.name = 'secondUnit';
+    clere.name = 'clere'
 
 function Building() { 
     // a building 
     // Object constructor for a single Building
     this.name = "";
     this.model= "";
+    this.shellType= "";
     this.priceShell= 0;
     this.priceOpt1= 0;
     this.priceOpt2= 0;
     this.squareFoot= "";
-    this.shellType= "";
     this.ceiling= 0;
     this.qtyRooms= 0;
+    this.masterBedroom= 0;
     this.qtyBath= 0;
     this.kitchen= "false"; //No Kitchen Default
-    this.shellPath= "";
     this.outDoorPool= "false";
     this.patio= "false";
     this.patioDeck= "false";
@@ -55,18 +56,27 @@ function Building() {
     this.garage1= "false";
     this.garage2= "false";
     this.garage3= "false";
-    this.descriptionSD= "Needs Description";
 
     
     //Image Paths sizes must be 1584x 835px
-        this.path1= "";
-        this.path2= "";
+    this.shellPath= "";
+
+    this.path1= "";
+    this.path2= "";
+    this.path3= ""; //Not by defualt an option 3 may exist
+    this.path4= ""; //Not by defualt an option 4 may exist
+    
+    this.floorPlanPath= "";
+
+    this.descriptionSD= "Needs Description";
 
 }
 
 function Shell() { 
     // a shell
     this.name= "";
+    this.fullName= "I have no Name :(";
+    this.desc= "I have no story.  Description Needed";
     // all available buildings
     this.modelAmount = 0;
     
@@ -190,6 +200,7 @@ function firstLoad ( famShell, dbName ) {
     
     //Structure DB Tables to famShell data and model
     createTBL(emptyShell, shellFam[0][0], 'sollarProductDB');
+    
     return true;
 }
 

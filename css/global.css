@@ -386,7 +386,11 @@ form button:hover {
         margin-right: 0;
     }
 }
+/* ++++++ NEW NAVBAR Styles +++++*/
 
+
+
+/* ++++++ /NEW NAVBAR Styles +++++*/
 .navbar {
 	top: 0px;
 	position: fixed;
@@ -444,13 +448,31 @@ form button:hover {
 	left: 0;
 	padding-top: 44px;
 }
+#navWords .dropdown {
+    background-color: transparent;
+    border: none;
+}
+.navbar ul.dropdown-menu {
+        position: absolute;
 
+    right: 0px !important;
+    float: right;
+    top: 64px;
+    /* text-align: right; */
+    width: 294px;
+}
+.navbar .dropdown-menu {
+    left: auto;
+    right: 0 !important;
+}
 @-moz-document url-prefix() { 
   .navbar ul li {
      padding-top: 43px;
   }
 }
 .navbar ul li a {
+    font-weight: 400;
+    font-size: 12px;
 	padding-left: 3px;
 }
 li#contactB {
@@ -483,6 +505,7 @@ li#contactB {
     letter-spacing: 2px;
     font-weight: bold;
 }
+
 @media(max-width: 650px){
 	
 	#logo-cent {
