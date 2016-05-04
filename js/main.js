@@ -189,7 +189,7 @@ jQuery(document).ready(function ($) {
         
     });    
     
-    if ( window.location.hash === ""  ) {
+   /* if ( window.location.hash === ""  ) {
         $("#welcomeVid1").modal('show');
         window.location.hash = "intro";
    
@@ -198,7 +198,7 @@ jQuery(document).ready(function ($) {
         $('.navbar').removeClass('on')
         $('body,section#welcomeVid, #menu-toggle').addClass('on');
               
-    }
+    } */
     
    if( jQuery('#carouselNav li:first-child').is(':hidden') ) {
 		// Toggle visibility

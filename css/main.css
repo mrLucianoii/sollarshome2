@@ -286,6 +286,68 @@ a#action h1.grow {
 }
 /* /Bam Section */ 
 
+/* Buying Experience Principles */
+#exp {
+    height: auto; 
+    border-top: solid 1px #858585;
+    padding-top: 93px;
+    padding-bottom: 93px;
+    overflow: hidden;
+    
+}
+#exp .container-fluid {
+    width: 90%;
+}
+.left-desc, .right-desc {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    height: auto;
+    text-align: left;
+}
+.left-desc *, .right-desc * {
+    width: 100%;
+    max-width: 400px;
+}
+.left-desc h1,
+.right-desc h1 {
+    padding-top: 40px;
+}
+.right-desc {
+    padding-left: 93px;
+}
+.left-img {
+    
+    position: relative;
+    display: inline;
+    width: 50%;
+
+}
+.right-img {
+    position: relative;
+    display: inline;
+    width: 50%;
+  
+}
+.right-img img, .left-img img {
+    position: relative;
+    display: inline;
+    width: auto;
+    height: 400px;
+    position: relative;
+    top: 0;
+    -webkit-box-shadow :  0.5px 1px 10.5px rgba(70, 70, 70, 0.8);
+  	-moz-box-shadow :  0.5px 1px 10.5px rgba(70, 70, 70, 0.8);
+	box-shadow : 0.5px 1px 10.5px rgba(70, 70, 70, 0.8);
+
+}
+.right-img img {
+}
+.left-img img {
+
+}
+/* /Buying Experience Principles */
+
 /* Welcome Video */ 
 
 section#welcomeVid {
