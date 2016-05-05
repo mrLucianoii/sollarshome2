@@ -39,10 +39,10 @@
          
         if ($shell == 'all'){
             
-             $query = "SELECT name,priceOpt2,path2,squareFoot FROM Buildings where 1 ";
+             $query = "SELECT name,priceOpt2,path2,squareFoot FROM Buildings where shellType != :clere and shellType != :garages ";
               //print $query;
               $ps = $con->prepare($query);
-              $ps->execute();
+              $ps->execute(array(':clere' => "clere", ':garages' => "garages"));
               $ps->setFetchMode(PDO::FETCH_CLASS, "Product");
               $products = $ps->fetchAll();
             
@@ -82,11 +82,10 @@
                           <button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Model Types
                           <span class='caret'></span></button>
                           <ul class='dropdown-menu'>
-                            <li><a href='catalog.html#eichler' onclick='location.reload()'>Eichler</a></li>
-                            <li><a href='catalog.html#secondUnit' onclick='location.reload()'>2nd Units</a></li>
-                            <li><a href='catalog.html#singleRanch' onclick='location.reload()'>Ranch</a></li>
-                            <li><a href='catalog.html#clere' onclick='location.reload()'>Clearstory</a></li>
-                            <li><a href='catalog.html#garages' onclick='location.reload()'>Garage</a></li>
+                            <li><a href='catalog.html#eichler' onclick='location.reload()'>Palo-Max</a></li>
+                            <li><a href='catalog.html#secondUnit' onclick='location.reload()'>2nd Units Guest House</a></li>
+                            <li><a href='catalog.html#singleRanch' onclick='location.reload()'>Single Storey Ranch</a></li>
+                            
                             <li><a href='catalog.html#all' onclick='location.reload()'>Show All </a></li>
                         </ul>
                         </div><br>";
@@ -167,7 +166,7 @@
 				 
 					print "<div class='p-box col-sm-4 text-center'>\n";
 						print "<div id='h-box'>\n";
-							print "<a href='homes.html#single-family/1'><img src=".$product->getUrl()." width='100%' height='auto' alt='Single Family Home'></a>\n";
+							print "<a href='homes.html#single-family/1'><img src=".$product->getUrl()." width='100%' height='250px' alt='Single Family Home'></a>\n";
 							
 						print "</div>\n";
 							print "<h3>".$product->getName()."</h3>\n";
