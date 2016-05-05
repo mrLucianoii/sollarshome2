@@ -298,6 +298,17 @@ a#action h1.grow {
 #exp .container-fluid {
     width: 90%;
 }
+#exp ul {
+    padding-left: 3.4em;
+}
+#exp ul li {
+    list-style: disc;
+}
+#exp h1{
+    font-style: italic;
+    font-size: 23px;
+    color: #cccccc;
+}
 .left-desc, .right-desc {
     position: relative;
     display: inline-block;
@@ -342,6 +353,7 @@ a#action h1.grow {
 
 }
 .right-img img {
+    float: right;
 }
 .left-img img {
 
