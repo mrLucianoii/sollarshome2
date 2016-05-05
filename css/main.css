@@ -76,6 +76,7 @@ ul{
 }
 main {
 	display: block;
+    position: relative;
 }
 section {
 	position: static;
@@ -149,8 +150,23 @@ body, html {
 	min-height: 100%;
 }
 #welcome {
-    border-top:solid 63px #4caf50;
     border-bottom:solid 12px #727272;
+    background-color: #cccccc;
+}
+#title h1 {
+    margin-top: 37px;
+    color: #727272;
+    padding-bottom: 13px;
+}
+ #title {
+    display: block;
+    position: relative;
+    margin-top: 53px;
+    padding-bottom: 17px;
+    background-color: #cccccc;
+    width: 100%;
+    border-bottom: solid 1px #ffffff;
+    
 }
 #bam {
     color: #ffffff;
@@ -171,6 +187,17 @@ body, html {
     border-radius: 3px;
     border: none;
     font-size: 16px;
+    
+}
+.btn-16:hover {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+
+    -webkit-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+  	-moz-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+	box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
 }
 .btn-call2 {
     font-size: 9px;
@@ -308,6 +335,29 @@ a#action h1.grow {
     font-style: italic;
     font-size: 23px;
     color: #cccccc;
+}
+.btn-exp {
+    font-weight: 400;
+    margin-top: 41px;
+    background-color: #727272;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    border:solid 1px #333;
+    color: #cccccc;
+}
+.btn-exp:hover {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    -webkit-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+  	-moz-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+	box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
 }
 .left-desc, .right-desc {
     position: relative;
@@ -467,8 +517,9 @@ section#welcomeVid.on {
 }
 
 section#welcome{
-    overflow: hidden;
-    
+    display: block;
+    position: relative;
+    height: auto;
 
 }
 section#welcome.on {
@@ -1264,6 +1315,33 @@ button#consult2 {
 	width: 600px;
 	padding-bottom: 45px;
 	}
+#products p {
+    text-align: justify;
+    letter-spacing: 2.2px;
+    text-indent: 2.1em;
+}
+.btn-mh {
+    font-weight: 400;
+    background-color: transparent;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    border:solid 3.3px #727272;
+    color: #727272;
+}
+.btn-mh:hover {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    -webkit-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+  	-moz-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+	box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+}
 h3#youKnow {
 	position: relative;
 	font-size: 22px;
@@ -1690,7 +1768,7 @@ padding-top: 17px;
 }
 .customer-box {
 	width: 45%;
-	padding: 13px 15px 7px 15px;
+	padding: 13px 15px 30px 15px;
 	background:url('../img/who-we-serve/trans.png') no-repeat fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1717,7 +1795,7 @@ padding-top: 17px;
 #who-we-serve a {
 	font-size: 22px;
 }
-#who-we-serve button {
+#who button {
 	background-color: #b6b6b6;
 	border: none;
 	margin-top: 77px;
@@ -1728,6 +1806,28 @@ padding-top: 17px;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
 
+}
+.btn-wws {
+    font-weight: 400;
+    background-color: transparent;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    border:solid 3.3px #ffffff;
+    color: #ffffff;
+}
+.btn-wws:hover {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    -webkit-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+  	-moz-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+	box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
 }
 #who-we-serve button:hover,
 #who-we-serve button:focus
@@ -1933,7 +2033,6 @@ p#rad50{
 	}
 }
 .carousel {
-    border-top:solid 55px #727272;
 	color: #f2f2f2;
     z-index: 3;
 }

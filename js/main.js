@@ -10,11 +10,6 @@ var tubeHeight = document.body.clientHeight,
     tubeWidth = document.body.clientWidth,
     $iframe = document.getElementsByTagName('iframe');
 
-//    console.log($iframe[0]);
-
-//    $iframe.height = tubeHeight;
-//    $iframe.width = tubeWidth;
-
     function imResized() {
         
         console.log("Im resizing Width and Height:" + tubeHeight + " & " + tubeWidth);
@@ -59,7 +54,7 @@ var tubeHeight = document.body.clientHeight,
     
     function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-          videoId: 'pRwLE6J-0lg',
+          videoId: 'pRwLE6J-0lg', // Intro to a sollars home
           height: tubeHeight,
           width: tubeWidth,
           playerVars: {
@@ -72,7 +67,25 @@ var tubeHeight = document.body.clientHeight,
           }
         });
         player2 = new YT.Player('player2', {
-          videoId: 'ab8K1w2R7zg',
+          videoId: 'ab8K1w2R7zg', // Power of the Shell
+          height: tubeHeight,
+          width: tubeWidth,
+          events: {
+            'onReady': '',
+            'onStateChange': ''
+          }
+        });
+        player3 = new YT.Player('player2', {
+          videoId: 'IDW_5dceDjY', // Our Model Homes
+          height: tubeHeight,
+          width: tubeWidth,
+          events: {
+            'onReady': '',
+            'onStateChange': ''
+          }
+        });
+        player2 = new YT.Player('player2', {
+          videoId: 'g_n-Zi-f388', // Who We Serve
           height: tubeHeight,
           width: tubeWidth,
           events: {
