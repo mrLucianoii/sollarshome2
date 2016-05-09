@@ -150,7 +150,6 @@ body, html {
 	min-height: 100%;
 }
 #welcome {
-    border-bottom:solid 12px #727272;
     background-color: #cccccc;
 }
 #title h1 {
@@ -316,14 +315,22 @@ a#action h1.grow {
 /* Buying Experience Principles */
 #exp {
     height: auto; 
+    background-color: #cccccc;
     border-top: solid 1px #858585;
     padding-top: 93px;
     padding-bottom: 93px;
     overflow: hidden;
     
 }
+
+#exp.first {
+    border-top: solid 43px #858585;
+    padding-top: 77px;
+}
 #exp .container-fluid {
     width: 90%;
+}
+#exp .line {
 }
 #exp ul {
     padding-left: 3.4em;
@@ -334,17 +341,25 @@ a#action h1.grow {
 #exp h1{
     font-style: italic;
     font-size: 23px;
-    color: #cccccc;
+    color: #ffffff;
+    border-bottom: solid 1px #727272;
+}
+#expTitle {
+    padding-bottom: 34px;
+}
+#exp h1#first {
+    border: none;
+    font-style: normal;
+    font-size: 4.3rem;
+    color: #ffffff;
 }
 .btn-exp {
     font-weight: 400;
-    margin-top: 41px;
-    background-color: #727272;
+    background-color: #4caf50;
     border-radius: 3px;
     border: none;
     font-size: 16px;
-    border:solid 1px #333;
-    color: #cccccc;
+    color: #ffffff;
 }
 .btn-exp:hover {
     -webkit-transition: all 1s ease;
@@ -358,6 +373,9 @@ a#action h1.grow {
     -webkit-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
   	-moz-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
 	box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+}
+#exp .btn-exp {
+    margin-top: 41px;
 }
 .left-desc, .right-desc {
     position: relative;
@@ -663,6 +681,12 @@ button.gold {
 	left: 0;
 	right: 0;
 	top: 100px;
+}
+.grey {
+    background-color: #cccccc;
+}
+.grey h1 {
+    color: #868686;
 }
 /* End of Main Globals */
 /* Main Nav */
@@ -1306,7 +1330,7 @@ button#consult2 {
 	padding-top: 30px;
 	padding-bottom: 15px;
 }
-#patent h3, #products h2 {
+#patent h3 {
 	position: relative;
 	left: 0;
 	right: 0;
@@ -1314,11 +1338,25 @@ button#consult2 {
 	margin-right: auto;
 	width: 600px;
 	padding-bottom: 45px;
-	}
+}
+#products h2 {
+    padding-bottom: 45px;
+    
+}
 #products p {
     text-align: justify;
     letter-spacing: 2.2px;
     text-indent: 2.1em;
+}
+#products .homeLogo {
+    position: absolute;
+    bottom: 14px;
+    right: 34px;
+    height: 51px;
+    width: auto;
+    -webkit-box-shadow: none;
+  	-moz-box-shadow: none;
+	box-shadow: none;
 }
 .btn-mh {
     font-weight: 400;
@@ -1355,9 +1393,13 @@ h3#youKnow {
 	padding-right: 0;
 }
 #products h2 {
-	padding-bottom: 0;
     font-weight: 100;
     font-size: 1.7rem;
+    
+}
+#products h2:first-child {
+    padding-bottom: 8px;
+    padding-top: 8px;
 }
 @media (max-width: 650px) {
 	#patent h3, #products h2, #hProducts {
@@ -1548,7 +1590,7 @@ h3#youKnow {
 #products h1 {
 	padding-top: 6px;
 }
-#products h1, #products h2, #our-vision h1 {
+#our-vision h1 {
 	color: #727272;
 }
 #hProducts {
@@ -1593,6 +1635,11 @@ h3#youKnow {
 }
 .p-box h3 {
 	padding-top: 13px;
+}
+.p-box img {
+    -webkit-box-shadow :  0.5px 1px 10.5px rgba(70, 70, 70, 0.8);
+  	-moz-box-shadow :  0.5px 1px 10.5px rgba(70, 70, 70, 0.8);
+	box-shadow : 0.5px 1px 10.5px rgba(70, 70, 70, 0.8);
 }
 .glyphicon-circle-arrow-right {
 	color: #4caf50;
@@ -1727,8 +1774,11 @@ h3#youKnow {
     margin-top: 33px;
 }
 #logoS{
-padding-top: 17px;   
+    padding-top: 17px;   
+    width: 350px;
+    height: auto;
 }
+
 #services {
 	position: relative;
 	border-top: solid 20px #020202;
@@ -1752,7 +1802,7 @@ padding-top: 17px;
 /* Scene Who We Serve FIVE */
 #who-we-serve {
 	/*border-top:solid 32px #81bb41; */
-	border-bottom:solid 32px #388e3c;
+	border-bottom:solid 32px #868686;
 	background:url('../img/who-we-serve/pool.jpg')no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1853,11 +1903,13 @@ p#rad50{
 /* About US FIVE */
 
 #about-us {
-	border-bottom:solid 32px #388e3c;
+	border-top:solid 32px #868686;
+    border-bottom:solid 32px #cccccc;
+
 	padding-top: 130px;
 	padding-bottom: 130px;
 	color: #727272;
-	
+	background-color: #ffffff;
 }
 #me {
 	position: relative;
@@ -1953,7 +2005,7 @@ p#rad50{
 
 /* Sustainable Engineering */
 #engine {
-	border-bottom:solid 32px #388e3c;
+	border-bottom:solid 32px #868686;
 	background:url('../img/engine/engine.png')no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -2066,7 +2118,9 @@ p#rad50{
 
 /* Scene SIX */
 .contact-main {
-	border-bottom:solid 32px #388e3c;
+	border-top: solid 32px #cccccc;
+
+    border-bottom:solid 32px #868686;
 	background:#f2f2f2 url('../img/white-house.jpg')no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -2230,40 +2284,13 @@ footer a:hover {
 
 .btn-video
 {
-	position: absolute;
-    right: -3px;
-    float: right;
-	background-color: #4caf50;
-	padding: 7px;
-	z-index: 105;
-	font-size: 13px;
-    margin-top : 5%;
-	background : -moz-linear-gradient(50% 100% 90deg,rgba(76, 175, 80, 1) 0%,rgba(111, 226, 111, 1) 100%);
-	background : -webkit-linear-gradient(90deg, rgba(76, 175, 80, 1) 0%, rgba(111, 226, 111, 1) 100%);
-	background : -webkit-gradient(linear,50% 100% ,50% 0% ,color-stop(0,rgba(76, 175, 80, 1) ),color-stop(1,rgba(111, 226, 111, 1) ));
-	background : -o-linear-gradient(90deg, rgba(76, 175, 80, 1) 0%, rgba(111, 226, 111, 1) 100%);
-	background : -ms-linear-gradient(90deg, rgba(76, 175, 80, 1) 0%, rgba(111, 226, 111, 1) 100%);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#4CAF50', endColorstr='#6FE26F' ,GradientType=0)";
-	background : linear-gradient(0deg, rgba(76, 175, 80, 1) 0%, rgba(111, 226, 111, 1) 100%);
-	border-style : Solid !important;
-	border-color : #FFFFFF !important;
-	border-color : rgba(255, 255, 255, 1) !important;
-	border-width : 1px !important;
-	border-radius : 3px !important;
-	border-right-width : 0px !important;
-	-moz-border-radius : 5px;
-	-webkit-border-radius : 5px;
-	box-shadow : -1px 2px 2.2px rgba(114, 114, 114, 0.75);
-	filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=7, OffY=7, Color='#727272') progid:DXImageTransform.Microsoft.gradient(startColorstr='#6FE26F',endColorstr='#4CAF50' , GradientType=0);
-    width: 100%;
-    max-width: 250px;
+	
     
 }
 @media (max-width: 768px){
     
     .btn-video span,
     {
-        display:none;
     }
     
 }

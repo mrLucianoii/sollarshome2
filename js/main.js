@@ -53,7 +53,7 @@ var tubeHeight = document.body.clientHeight,
           player2;
     
     function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
+        player = new YT.Player('player1', {
           videoId: 'pRwLE6J-0lg', // Intro to a sollars home
           height: tubeHeight,
           width: tubeWidth,
@@ -75,7 +75,7 @@ var tubeHeight = document.body.clientHeight,
             'onStateChange': ''
           }
         });
-        player3 = new YT.Player('player2', {
+        player3 = new YT.Player('player3', {
           videoId: 'IDW_5dceDjY', // Our Model Homes
           height: tubeHeight,
           width: tubeWidth,
@@ -84,8 +84,17 @@ var tubeHeight = document.body.clientHeight,
             'onStateChange': ''
           }
         });
-        player2 = new YT.Player('player2', {
-          videoId: 'g_n-Zi-f388', // Who We Serve
+        player4 = new YT.Player('player4', {
+          videoId: 'ZQK9RJUGRlQ', // Who We Serve
+          height: tubeHeight,
+          width: tubeWidth,
+          events: {
+            'onReady': '',
+            'onStateChange': ''
+          }
+        });
+         player5 = new YT.Player('player5', {
+          videoId: '3qXEXSDKPEk', // Do Business with us
           height: tubeHeight,
           width: tubeWidth,
           events: {
