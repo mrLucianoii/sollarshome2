@@ -71,6 +71,7 @@
             
             $shellDescription = $shellDesc[0]['desc'];
             $shellNameH1 =  ucfirst($shellDesc[0]['fullName']);
+            $shellLogo = $shellDesc[0]['logo_url'];
         }
 
            // print_r(array_values($products));
@@ -96,7 +97,7 @@
 				print "<div class='row'>\n";
 				 
 					print "<div class='col-md-6'>\n";
-						      print "<h2 style='padding-top: 0; font-weight: 500; font-size: 22px; color: #727272'>".$shellNameH1."</h2>";
+						      print "<img src=".$shellLogo.">";
 							print "<p style='text-align:justify'>".$shellDescription."<p>\n";
 							
                         

@@ -66,6 +66,7 @@ var tubeHeight = document.body.clientHeight,
 
           }
         });
+        
         player2 = new YT.Player('player2', {
           videoId: 'ab8K1w2R7zg', // Power of the Shell
           height: tubeHeight,
