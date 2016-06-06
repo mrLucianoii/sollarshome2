@@ -172,8 +172,8 @@
 						print "</div>\n";
 							print "<h3>".$product->getName()."</h3>\n";
 							print "<p>
-                              <strong>Base Price:</strong>".$product->getBasePrice()." USD</p>
-                              <p><strong>SF:</strong>".$product->getSF()." SF
+                              <strong>Base Price:</strong>".$product->getBasePrice()." </p>
+                              <p><strong>SF:</strong>".$product->getSF()." 
 							</p>\n";
                         
                        
