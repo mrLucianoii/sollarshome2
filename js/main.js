@@ -49,12 +49,23 @@ var tubeHeight = document.body.clientHeight,
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      var player,
-          player2;
+      var player1,
+          player2,
+          player3,
+          player4,
+          player5,
+          player6;
+
+    var playerList = [ player1,
+          player2,
+          player3,
+          player4,
+          player5,
+          player6 ]
     
     function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player1', {
-          videoId: 'pRwLE6J-0lg', // Intro to a sollars home
+        player1 = new YT.Player('player1', {
+          videoId: 'oGqBwk8CgUY', // Intro to a sollars home
           height: tubeHeight,
           width: tubeWidth,
           playerVars: {
@@ -68,7 +79,7 @@ var tubeHeight = document.body.clientHeight,
         });
         
         player2 = new YT.Player('player2', {
-          videoId: 'ab8K1w2R7zg', // Power of the Shell
+          videoId: 'MslssiL1Vbg', // Power of the Shell
           height: tubeHeight,
           width: tubeWidth,
           events: {
@@ -77,7 +88,7 @@ var tubeHeight = document.body.clientHeight,
           }
         });
         player3 = new YT.Player('player3', {
-          videoId: 'IDW_5dceDjY', // Our Model Homes
+          videoId: 'Me0c8K9lZXw', // Our Model Homes
           height: tubeHeight,
           width: tubeWidth,
           events: {
@@ -86,16 +97,16 @@ var tubeHeight = document.body.clientHeight,
           }
         });
         player4 = new YT.Player('player4', {
-          videoId: 'ZQK9RJUGRlQ', // Who We Serve
+          videoId: 'Ak9utLCrBpc', // Who We Serve
           height: tubeHeight,
           width: tubeWidth,
           events: {
             'onReady': '',
             'onStateChange': ''
           }
-        });
+        });https://youtu.be/GOD_gu2T4Eo
          player5 = new YT.Player('player5', {
-          videoId: '3qXEXSDKPEk', // Do Business with us
+          videoId: 'GOD_gu2T4Eo', // Do Business with us
           height: tubeHeight,
           width: tubeWidth,
           events: {
@@ -103,8 +114,8 @@ var tubeHeight = document.body.clientHeight,
             'onStateChange': ''
           }
         });
-         player6 = new YT.Player('player5', {
-          videoId: 'd-1-9ViQdXI', // An Interview with Don
+         player6 = new YT.Player('player6', {
+          videoId: 'wyRSPmzxDbs', // An Interview with Don
           height: tubeHeight,
           width: tubeWidth,
           events: {
@@ -128,9 +139,10 @@ var tubeHeight = document.body.clientHeight,
       }
       
     function stopVideo(video) {
-        console.log(video);
-        video.stopVideo();
-      }
+        
+       video.stopVideo();
+    
+    }
 
     
 
@@ -198,26 +210,56 @@ jQuery(document).ready(function ($) {
         
         console.log($($iframe));
         
+        
+        //stopVideo('#player1');
+        
         for (var i=0; i < $($iframe).length; i++){
             
-            
+            stopVideo( player1 );   
+            //console.log( "test");
             
         }
         
-       // stopVideo(window[$iframe]);
            
     }
-        $('.videoPops').on('show.bs.modal', function (e) {
+    
+    $('.videoPops').on('show.bs.modal', function (e) {
             
 
             
-        });
+    });
 
-    $('body').on('hide.bs.modal', function (e) {
-        console.log( 'testing model close function' );
+    $('button#vidClose, button#banner').on('click', function (e) {
+        console.log( this.dataset.tube );
         
+        var tube = this.dataset.tube;
         
-        stopModalmovie();
+        switch (tube){
+            case 'player1':
+                stopVideo(player1);
+                $('#emailCatcher').modal('show');
+                break;
+            case 'player2':
+                stopVideo(player2);
+                break;        
+            case 'player3':
+                stopVideo(player3);
+                break;
+            case 'player4':
+                stopVideo(player4);
+                break;
+            case 'player5':
+                stopVideo(player5);
+                break;
+            case 'player6':
+                stopVideo(player6);
+                break;
+
+                
+            default: 
+                console.log('no luck');
+        }
+        
         
     });    
     

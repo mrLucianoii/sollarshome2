@@ -85,7 +85,7 @@
                           <ul class='dropdown-menu'>
                             <li><a href='catalog.html#eichler' onclick='location.reload()'>Palo-Max</a></li>
                             <li><a href='catalog.html#secondUnit' onclick='location.reload()'>2nd Units Guest House</a></li>
-                            <li><a href='catalog.html#singleRanch' onclick='location.reload()'>Single Storey Ranch</a></li>
+                            <li><a href='catalog.html#singleRanch' onclick='location.reload()'>Single Story Ranch</a></li>
                             
                             <li><a href='catalog.html#all' onclick='location.reload()'>Show All </a></li>
                         </ul>
