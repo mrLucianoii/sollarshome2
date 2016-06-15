@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32.5px"
+	 height="29.6px" viewBox="0 0 32.5 29.6" enable-background="new 0 0 32.5 29.6" xml:space="preserve">
+<g id="landing1">
+	<g id="Main_Body">
+	</g>
+	<g id="info_icons">
+	</g>
+</g>
+<g id="nav-Modal" display="none">
+	<g id="Main" display="inline">
+	</g>
+</g>
+<g id="Dashboard">
+	<g id="local_guides" display="none">
+	</g>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="4.6561" y1="26.46" x2="27.9365" y2="3.1796">
+		<stop  offset="0" style="stop-color:#CCCCCC"/>
+		<stop  offset="1" style="stop-color:#FFFFFF"/>
+	</linearGradient>
+	<path fill="url(#SVGID_1_)" d="M24.8,29.6l-8.5-8.5l-8.5,8.5l-6.4-6.4l8.5-8.5L1.5,6.4L7.8,0l8.5,8.5L24.8,0l6.4,6.4l-8.5,8.5
+		l8.5,8.5L24.8,29.6z"/>
+</g>
+<g id="Tree_Headers">
+</g>
+<g id="Dashboard_2" display="none">
+</g>
+<g id="Layer_2" display="none">
+</g>
+</svg>

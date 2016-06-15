@@ -96,15 +96,15 @@
 
 				print "<div class='row'>\n";
 				 
-					print "<div class='col-md-6'>\n";
-						      print "<img src=".$shellLogo.">";
+					print "<div class='col-md-12'>\n";
+						      print "<img class='text-center' src=".$shellLogo." width='auto' height='97px'>";
 							print "<p style='text-align:justify'>".$shellDescription."<p>\n";
 							
                         
                        
 						print "</div>\n"; // column
 						
-						print "<div style='margin-top: 29px;' class='col-md-6'>\n";
+					/*	print "<div style='margin-top: 29px;' class='col-md-6'>\n";
 						
 						print	"<form action='' method='post'>
 											  <div class='form-control'>
@@ -146,11 +146,11 @@
 											  <input class='btn btn-secondary' type='button' value='Search' onclick='getProducts()'>
 											  <input class='btn btn-secondary' type='button' value='Reset' onclick='initialize()'>
 											  </div>
-											</form>\n"; 
+											</form>\n"; */
 							
                         
                        
-						print "</div>\n"; // column
+				//d		print "</div>\n"; // column
 						print "</div>\n";  //row
 						print "</section>\n"; // container
 

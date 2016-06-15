@@ -1,0 +1,69 @@
+.dropdown {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    
+}
+.dropdown button {
+    background-color: #727272;
+    border: none;
+}
+.btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open>.dropdown-toggle.btn-primary{
+    background-color: #ffffff;
+    color: #4caf50;
+    -webkit-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+  	-moz-box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+	box-shadow: 0px 1px 40.3px rgba(70, 70, 70, 0.86);
+    
+}
+.dropdown-menu>li>a:hover,
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: #4caf50;
+    -webkit-box-shadow: 0px 1px 20.3px rgba(70, 70, 70, 0.86);
+  	-moz-box-shadow: 0px 1px 20.3px rgba(70, 70, 70, 0.86);
+	box-shadow: 0px 1px 20.3px rgba(70, 70, 70, 0.86);
+
+    
+}
+.btn-secondary {
+ 
+}
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+
+}
+#products {
+    padding-top: 0;
+    border-bottom: none;
+}
+.greenMe h1 {
+    color: #ffffff;
+    
+}
+section.greenMe {
+    padding-top: 57px;
+    padding-bottom: 17px
+    
+}
+#filter {
+    margin-top: 57px;
+}
+.sd-form-control {
+    margin-top: 7px;
+    padding-bottom: 17px;
+}
+#h-box {
+    border: solid 6px #ccc;
+    -webkit-box-shadow: 0.5px 1px 10.5px rgba(70, 70, 70, 0.8);
+    -moz-box-shadow: 0.5px 1px 10.5px rgba(70, 70, 70, 0.8);
+    box-shadow: 0.5px 1px 10.5px rgba(70, 70, 70, 0.8);
+}

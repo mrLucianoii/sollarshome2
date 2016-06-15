@@ -1,0 +1,8 @@
+[08-Oct-2015 22:21:40 UTC] PHP Fatal error:  Call to undefined function getArrayIndex() in /home/mrluciano/public_html/sollars/json.php on line 10
+[08-Oct-2015 22:21:59 UTC] PHP Fatal error:  Call to undefined function getArrayIndex() in /home/mrluciano/public_html/sollars/json.php on line 10
+[18-Dec-2015 13:21:46 UTC] PHP Fatal error:  Call to undefined function check_input() in /home/mrluciano/public_html/sollars/sender.php on line 37
+[18-Dec-2015 13:25:09 UTC] PHP Fatal error:  Call to undefined function check_input() in /home/mrluciano/public_html/sollars/sender.php on line 37
+[18-Dec-2015 13:27:38 UTC] PHP Fatal error:  Call to undefined function check_input() in /home/mrluciano/public_html/sollars/sender.php on line 8
+[18-Dec-2015 23:34:04 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/mrluciano/public_html/sollars/configHome.php on line 26
+[18-Dec-2015 23:36:01 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/mrluciano/public_html/sollars/configHome.php on line 26
+[18-Dec-2015 23:37:14 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/mrluciano/public_html/sollars/configHome.php on line 26
