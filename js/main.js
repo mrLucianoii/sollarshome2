@@ -61,72 +61,103 @@ var tubeHeight = document.body.clientHeight,
           player3,
           player4,
           player5,
-          player6 ]
+          player6 ];
     
     function onYouTubeIframeAPIReady() {
         player1 = new YT.Player('player1', {
-          videoId: 'oGqBwk8CgUY', // Intro to a sollars home
+          //videoId: 'oGqBwk8CgUY', // Intro to a sollars home
           height: tubeHeight,
           width: tubeWidth,
-          playerVars: {
+          /*loadPlaylist:{
+            listType:'playlist',
+            list:['oGqBwk8CgUY','MslssiL1Vbg'],
+            index:parseInt(0),
+            suggestedQuality:'small'
+         },*/
+          /*playerVars: {
             'showinfo': 0
-          },    
+          }, */   
           events: {
-            'onReady': '',
+            'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange,
 
           }
         });
+
+      
         
         player2 = new YT.Player('player2', {
-          videoId: 'MslssiL1Vbg', // Power of the Shell
+          //videoId: 'MslssiL1Vbg', // Power of the Shell
           height: tubeHeight,
           width: tubeWidth,
           events: {
-            'onReady': '',
-            'onStateChange': ''
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
           }
         });
         player3 = new YT.Player('player3', {
-          videoId: 'Me0c8K9lZXw', // Our Model Homes
+          //videoId: 'Me0c8K9lZXw', // Our Model Homes
           height: tubeHeight,
           width: tubeWidth,
           events: {
-            'onReady': '',
-            'onStateChange': ''
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
           }
         });
         player4 = new YT.Player('player4', {
-          videoId: 'Ak9utLCrBpc', // Who We Serve
+          //videoId: 'Ak9utLCrBpc', // Who We Serve
           height: tubeHeight,
           width: tubeWidth,
           events: {
-            'onReady': '',
-            'onStateChange': ''
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
           }
-        });https://youtu.be/GOD_gu2T4Eo
+        });//https://youtu.be/GOD_gu2T4Eo
          player5 = new YT.Player('player5', {
-          videoId: 'GOD_gu2T4Eo', // Do Business with us
+          //videoId: 'GOD_gu2T4Eo', // Do Business with us
           height: tubeHeight,
           width: tubeWidth,
           events: {
-            'onReady': '',
-            'onStateChange': ''
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
           }
         });
          player6 = new YT.Player('player6', {
-          videoId: 'wyRSPmzxDbs', // An Interview with Don
+          //videoId: 'wyRSPmzxDbs', // An Interview with Don
           height: tubeHeight,
           width: tubeWidth,
           events: {
-            'onReady': '',
-            'onStateChange': ''
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
           }
         });
      }
     
       function onPlayerReady(event) {
-        event.target.playVideo();
+        if(event.target == player1){
+          event.target.cuePlaylist(['oGqBwk8CgUY','MslssiL1Vbg', 'Me0c8K9lZXw','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs']);
+        }
+
+        if(event.target == player2){
+          event.target.cuePlaylist(['MslssiL1Vbg', 'Me0c8K9lZXw','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY']);
+        }
+
+        if(event.target == player3){
+          event.target.cuePlaylist(['Me0c8K9lZXw','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg']);
+        }
+
+        if(event.target == player4){
+          event.target.cuePlaylist(['Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','Me0c8K9lZXw']);
+        }
+
+        if(event.target == player5){
+          event.target.cuePlaylist(['GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','Me0c8K9lZXw','Ak9utLCrBpc']);
+        }
+
+        if(event.target == player6){
+          event.target.cuePlaylist(['wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','Me0c8K9lZXw','Ak9utLCrBpc','GOD_gu2T4Eo']);
+        }
+        
       }
 
       var done = false;
@@ -233,7 +264,7 @@ jQuery(document).ready(function ($) {
         console.log( this.dataset.tube );
         
         var tube = this.dataset.tube;
-        
+        alert(tube);
         switch (tube){
             case 'player1':
                 stopVideo(player1);
