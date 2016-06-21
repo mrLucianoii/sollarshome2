@@ -135,27 +135,27 @@ var tubeHeight = document.body.clientHeight,
     
       function onPlayerReady(event) {
         if(event.target == player1){
-          event.target.cuePlaylist(['oGqBwk8CgUY','MslssiL1Vbg', 'Me0c8K9lZXw','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs']);
+          event.target.cuePlaylist(['oGqBwk8CgUY','MslssiL1Vbg', 'NNwH5ckMdA0','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs']);
         }
 
         if(event.target == player2){
-          event.target.cuePlaylist(['MslssiL1Vbg', 'Me0c8K9lZXw','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY']);
+          event.target.cuePlaylist(['MslssiL1Vbg', 'NNwH5ckMdA0','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY']);
         }
 
         if(event.target == player3){
-          event.target.cuePlaylist(['Me0c8K9lZXw','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg']);
+          event.target.cuePlaylist(['NNwH5ckMdA0','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg']);
         }
 
         if(event.target == player4){
-          event.target.cuePlaylist(['Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','Me0c8K9lZXw']);
+          event.target.cuePlaylist(['Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','NNwH5ckMdA0']);
         }
 
         if(event.target == player5){
-          event.target.cuePlaylist(['GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','Me0c8K9lZXw','Ak9utLCrBpc']);
+          event.target.cuePlaylist(['GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','NNwH5ckMdA0','Ak9utLCrBpc']);
         }
 
         if(event.target == player6){
-          event.target.cuePlaylist(['wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','Me0c8K9lZXw','Ak9utLCrBpc','GOD_gu2T4Eo']);
+          event.target.cuePlaylist(['wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','NNwH5ckMdA0','Ak9utLCrBpc','GOD_gu2T4Eo']);
         }
         
       }
@@ -264,7 +264,7 @@ jQuery(document).ready(function ($) {
         console.log( this.dataset.tube );
         
         var tube = this.dataset.tube;
-        alert(tube);
+        //alert(tube);
         switch (tube){
             case 'player1':
                 stopVideo(player1);
