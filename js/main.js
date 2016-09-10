@@ -3,9 +3,30 @@
 // Url: http://brandedsolid.com
 
 
- 
- console.log(document.body.clientHeight);
-    
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+
+
 var tubeHeight = document.body.clientHeight,
     tubeWidth = document.body.clientWidth,
     $iframe = document.getElementsByTagName('iframe');
@@ -49,20 +70,37 @@ var tubeHeight = document.body.clientHeight,
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      var player1,
-          player2,
-          player3,
-          player4,
-          player5,
-          player6;
+    var tubeEngl = ['oGqBwk8CgUY','GOD_gu2T4Eo', 'MslssiL1Vbg','Ak9utLCrBpc', 'NNwH5ckMdA0', 'wyRSPmzxDbs'],
+        tubeMand = ['R6-0BBicpu0', 'xxrdn0TGtqw', '-Zbywb2lafY', 'l2jTaYX33NY', 'bu0ltIFRRWQ', '7GbVSfuuEEM' ];
 
-    var playerList = [ player1,
-          player2,
-          player3,
-          player4,
-          player5,
-          player6 ];
-    
+    var langSD,
+        firstPrompt = false;
+
+/*    if (location.href.split('english=')[1] == -1)
+        langSD = 'Mandarin';
+    else
+        langSD = 'English';
+        */
+
+ function checkCookie() {
+        var langChoice = getCookie("language");
+        if (langChoice != "") {
+            
+            langSD = langChoice;
+            // Assign a value to Language variable 
+           // alert("Welcome again " + user);
+            
+        } else {
+          
+            langSD = 'English';
+            firstPrompt = true; // Will fire modal in JQuery
+            
+        }
+        
+}
+
+checkCookie();
+
     function onYouTubeIframeAPIReady() {
         player1 = new YT.Player('player1', {
           //videoId: 'oGqBwk8CgUY', // Intro to a sollars home
@@ -83,8 +121,6 @@ var tubeHeight = document.body.clientHeight,
 
           }
         });
-
-      
         
         player2 = new YT.Player('player2', {
           //videoId: 'MslssiL1Vbg', // Power of the Shell
@@ -134,43 +170,76 @@ var tubeHeight = document.body.clientHeight,
      }
     
       function onPlayerReady(event) {
-        if(event.target == player1){
-          event.target.cuePlaylist(['oGqBwk8CgUY','MslssiL1Vbg', 'Me0c8K9lZXw','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs']);
-        }
+          
+        var currentPlayList = [];
 
+          function tubeloader(plyID, lang){
+            
+            var playOffset = plyID.split('').splice(-1, 1)-1;
+              
+            //  console.log('Offset: '+playOffset);
+              
+            if (lang == 'English' ){
+                 for (var i=0; i < tubeEngl.length; i++){
+                    
+                    var pos = ( i + playOffset ) % tubeEngl.length;
+                    currentPlayList.push(tubeEngl[pos]);
+                    
+                }
+            }else {
+                
+                for (var i=0; i < tubeMand.length; i++){
+                    
+                    var pos = ( i + playOffset ) % tubeMand.length;
+                    currentPlayList.push(tubeMand[pos]);
+                    
+                }
+
+            } 
+              
+            return currentPlayList;
+              
+          } // end of tubeloader
+        
+
+        if(event.target == player1){            
+
+                event.target.cuePlaylist(tubeloader('player1', langSD));
+                
+        }
         if(event.target == player2){
-          event.target.cuePlaylist(['MslssiL1Vbg', 'Me0c8K9lZXw','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY']);
+            
+                event.target.cuePlaylist(tubeloader('player2', langSD));
         }
 
         if(event.target == player3){
-          event.target.cuePlaylist(['Me0c8K9lZXw','Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg']);
+                event.target.cuePlaylist(tubeloader('player3', langSD));
         }
 
         if(event.target == player4){
-          event.target.cuePlaylist(['Ak9utLCrBpc', 'GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','Me0c8K9lZXw']);
+                event.target.cuePlaylist(tubeloader('player4', langSD));
         }
 
         if(event.target == player5){
-          event.target.cuePlaylist(['GOD_gu2T4Eo', 'wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','Me0c8K9lZXw','Ak9utLCrBpc']);
+                event.target.cuePlaylist(tubeloader('player5', langSD));
         }
 
         if(event.target == player6){
-          event.target.cuePlaylist(['wyRSPmzxDbs', 'oGqBwk8CgUY','MslssiL1Vbg','Me0c8K9lZXw','Ak9utLCrBpc','GOD_gu2T4Eo']);
+                event.target.cuePlaylist(tubeloader('player6', langSD));
         }
         
       }
 
       var done = false;
 
-      function onPlayerStateChange(event) {
+    function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
           setTimeout(stopVideo, 1000);
           done = true;
         }
       }
       
-    function stopVideo(video) {
-        
+    function stopTube(video) {
        video.stopVideo();
     
     }
@@ -264,26 +333,36 @@ jQuery(document).ready(function ($) {
         console.log( this.dataset.tube );
         
         var tube = this.dataset.tube;
-        alert(tube);
+        console.log("Switch Statement var: " + tube);
         switch (tube){
             case 'player1':
-                stopVideo(player1);
+                stopTube(player1);
                 $('#emailCatcher').modal('show');
                 break;
             case 'player2':
-                stopVideo(player2);
+                stopTube(player2);
+                $('#emailCatcher').modal('show');
+
                 break;        
             case 'player3':
                 stopVideo(player3);
+                $('#emailCatcher').modal('show');
+
                 break;
             case 'player4':
-                stopVideo(player4);
+                stopTube(player4);
+                $('#emailCatcher').modal('show');
+                
                 break;
             case 'player5':
-                stopVideo(player5);
+                stopTube(player5);
+                $('#emailCatcher').modal('show');
+                
                 break;
             case 'player6':
-                stopVideo(player6);
+                stopTube(player6);
+                $('#emailCatcher').modal('show');
+                
                 break;
 
                 
@@ -382,18 +461,24 @@ jQuery(document).ready(function ($) {
     });
  
     $('#ques a[href^="#"]').on('click', function (e) {
+        
+        console.log("Inside Ques func");
+        
 	    e.preventDefault();
         $(document).off("scroll");
       
         var target = this.hash,
             menu = target,
-		$target = $(target),
+		$target = $("#ans "+target),
 		targetPos = $target.offset().top-110;
 		
-        $('html, body').stop().animate({
-            'scrollTop': targetPos
-        }, 500, 'swing', function () {
-        });
+        $('html, body').animate({
+            scrollTop: 1300
+        }, 500);
+        
+        console.log("End Ques func.  Target: " + $target + " and pos " + targetPos);
+        console.log("mene var: " + target + " & its hash: " + this.hash)
+
     });
 	
     $('#ans a[href^="#"]').on('click', function (e) {
@@ -405,7 +490,7 @@ jQuery(document).ready(function ($) {
 		$target = $(target),
 		targetPos = $target.offset().top-700;
 		
-        $('html, body').stop().animate({
+        $('html, body').animate({
             'scrollTop': targetPos
         }, 500, 'swing', function () {
         });
@@ -590,7 +675,33 @@ jQuery(document).ready(function ($) {
     
   google.maps.event.addDomListener(window, 'load', solid_maps);
 
-	
+    $('.eng').on('click', function(e){
+      
+        var lang = 'English'; 
+        setCookie("language", lang, 365);
+        $('#language').modal('hide');
+    
+        location.reload();
+ 
+    });
+
+     $('.mand').on('click', function(e){
+    
+        english = false; 
+        var lang = 'Mandarin';         
+        setCookie("language", lang, 365);   
+         
+        location.reload();
+ 
+
+    });
+    
+    if (firstPrompt)
+        $('#language').modal('show');
+   
+   
+    
+    console.log('We made it to the end');
     
 });
 

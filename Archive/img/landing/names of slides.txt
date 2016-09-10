@@ -1,9 +1,0 @@
-slide 1 -   paradise 
-slide 2 -   malibu shell 
-slide 3 -   Malibu finish Option 1 // Finished Malibu Shell with slate roof and Ipe wood siding
-slide 4 -   Gulf Breeze Shell
-slide 5 -   Finished Gulf Breeze Shell (Options: Spanish tile roof and stucco channels)
-slide 6 -  Santa Monica Shell
-	Change "Quick Production Superior Quality" to "Faster Production, Superior Quality, and More Resistant to the Forces of Nature"
-slide 7 -  Finished Santa Monica Shell (Options: Spanish tile roof with skylights and triangular clerestory windows)
-	Change "Competitively Priced" to "Priced Comparably to the Same House Built from Wood"

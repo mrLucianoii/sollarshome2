@@ -167,7 +167,7 @@
 				 
 					print "<div class='p-box col-sm-4 text-center'>\n";
 						print "<div id='h-box'>\n";
-							print "<a href='homes.html#single-family/1'><img src=".$product->getUrl()." width='100%' height='250px' alt='Single Family Home'></a>\n";
+							print "<img src=".$product->getUrl()." width='100%' height='auto' alt='Single Family Home'>\n";
 							
 						print "</div>\n";
 							print "<h3>".$product->getName()."</h3>\n";
