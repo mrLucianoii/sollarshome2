@@ -85,7 +85,7 @@
             
         }
 
-          $con = new PDO("mysql:host=23.229.196.192; dbname=sollarProductDB","sollarsDBAdmin","+)4TeJm?!TS5");
+          $con = new PDO("mysql:host=IDONTTHINKSO; dbname=IDONTTHINKSO","sollarsDBAdmin","IDONTTHINKSO");
           $con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         
            

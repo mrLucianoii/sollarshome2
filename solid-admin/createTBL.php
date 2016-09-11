@@ -16,10 +16,10 @@
  * from SOLID.
  */
 
-    $servername = "localhost";
-    $username = "sollarsDBAdmin";
-    $password = "z4M-MwK)@Xi#";
-    $dbname = "sollarProductDB";
+    $servername = "IDONTTHINKSO";
+    $username = "IDONTTHINKSO";
+    $password = "IDONTTHINKSO";
+    $dbname = "IDONTTHINKSO";
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
