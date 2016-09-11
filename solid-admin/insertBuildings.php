@@ -20,10 +20,10 @@
  
  */
 
-    $servername = "localhost";
-    $username = "sollarsDBAdmin";
-    $password = "z4M-MwK)@Xi#";
-    $dbname = "sollarProductDB";
+    $servername = "IDONTTHINKSO";
+    $username = "IDONTTHINKSO";
+    $password = "IDONTTHINKSO";
+    $dbname = "IDONTTHINKSO";
 
     $buildings = json_decode( $_POST[buildings], true);
     $shellName = json_decode( $_POST[shellType], true );
