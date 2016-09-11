@@ -1,8 +1,8 @@
 <?php    
-    $server = "23.229.196.192";
-    $username = "adminSOLID";
-    $password = "Po%uEqsD4?ga";
-    $database = "sollars_email_app_db";
+    $server = "IDONTTHINKSO";
+    $username = "IDONTTHINKSO";
+    $password = "IDONTTHINKSO";
+    $database = "IDONTTHINKSO";
 
     $con = mysql_connect($server, $username, $password) or die ("Could not connect: " . mysql_error());
 
