@@ -147,7 +147,6 @@ body, html {
 
 }
 .cd-scrolling-bg {
-	min-height: 100%;
 }
 @media (max-width: 768px){
     .cd-scrolling-bg {
@@ -1823,7 +1822,7 @@ p#rad50{
 
 /* Scene SIX */
 .contact-main {
-	border-top: solid 32px #cccccc;
+	border-top: solid 3px #868686;
 
     border-bottom:solid 32px #868686;
 	background:#f2f2f2 url('../img/white-house.jpg')no-repeat center center scroll;

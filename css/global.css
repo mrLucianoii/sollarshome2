@@ -317,7 +317,7 @@ form button:hover {
 }
 #logo-cent, #logo-left {
 	margin-top: 10px;
-	height: 38px;
+	height: 59px;
 	width: auto;
 	display: inline;
 	padding-left: 33px;
@@ -590,6 +590,43 @@ button#lastVid{
 }
 .glyphicon .glyphicon-earphone {
 	top: 2px;
+}
+
+#pressRel {
+	padding-top: 59px;
+	padding-bottom: 79px;
+}
+#pressRel h1 {
+	color: #ffffff;
+	font-weight: 300;
+
+}
+#pressRel img {
+	display: block;
+	position: relative;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+#pressRel #pressLogo0 {
+	margin-top: 26px;
+	width: auto;
+	height: 43px;
+}
+#pressRel #pressLogo1 {
+	width: auto;
+	height: 73px;
+}
+#pressRel ul {
+	position: relative;
+	padding-top: 27px;
+	display: inline-flex;
+
+}
+#pressRel ul li {
+	display: inline;
 }
 #freeConsult .modal-dialog,
 #emailCatcher .modal-dialog {
