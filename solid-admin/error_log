@@ -1,4 +1,0 @@
-[13-Feb-2016 10:59:15 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/mrluciano/public_html/sollars/solid-admin/createTBL.php on line 79
-[13-Feb-2016 11:01:02 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/mrluciano/public_html/sollars/solid-admin/createTBL.php on line 79
-[14-Feb-2016 12:12:12 UTC] PHP Fatal error:  Unsupported operand types in /home/mrluciano/public_html/sollars/solid-admin/insertBuildings.php on line 57
-[14-Feb-2016 12:12:17 UTC] PHP Fatal error:  Unsupported operand types in /home/mrluciano/public_html/sollars/solid-admin/insertBuildings.php on line 57
