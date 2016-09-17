@@ -457,7 +457,7 @@ form button:hover {
 	box-shadow: 0px 1px 10.3px rgba(70, 70, 70, 0.86);
 	height: 79px;
 	width: 100%;
-	z-index: 1003;
+	z-index: 888;
     margin-bottom: 0;   
 }
 .navbar.entNav {
