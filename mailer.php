@@ -14,6 +14,7 @@ $email = check_input($_POST['email']);
 $message = check_input($_POST['message'], "Write your message");
 
 $subject = check_input($_POST['subject']);  
+$city = check_input($_POST['city']);  
 
 /* If e-mail is not valid show error message */
 if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email))
@@ -27,6 +28,7 @@ First Name: $name
 Last Name: $nameLast
 Phone: $phone
 E-mail: $email
+Site Location: $city
 
 
 Message:

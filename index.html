@@ -70,7 +70,17 @@
         <script src="build/react.js"></script>
         <script src="build/react-dom.js"></script>
         <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
-       
+     <style>
+    #mobileDebug {
+        position: fixed;
+        top: 0;
+        left: 0;
+        font-size: 50px;
+        z-index: 17;
+        opacity: .5;    
+    }
+    
+        </style>  
 		
     </head>
     <body>
@@ -80,7 +90,7 @@
         <![endif]-->    
    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
    
-    </script>
+    <div id="mobileDebug"></div>
 
 <div id="content-wrapper" class="toggled">
      <div id="sidebar-wrapper" class="">
@@ -125,7 +135,7 @@
                     </li>
                     <li>
                         <button class="btn-call2" data-toggle="modal" data-target="#freeConsult">FREE CONSULTATION</button>
-                        <button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button>
+                        <a ref="tel:+18447655277"><button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button></a>
                     </li>
                     <li class="text-center">
 	                    <a id="close" >close</a>
@@ -180,7 +190,7 @@
 
                     <li>
                         <button class="btn-call2" data-toggle="modal" data-target="#freeConsult">FREE CONSULTATION</button>
-                        <button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button>
+                        <a ref="tel:+18447655277"><button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button></a>
 
                     </li>
 	             </ul>
@@ -207,13 +217,12 @@
 	   </div>	
     	
 
- 
+<div id="topBlock"> 
 	<!--  ================ Landing ============================-->
-	
+    
     <div class='cd-fixed-bg cd-bg-1'>
-        
-        
-        <div class="container text-center">
+            
+    <div class="container text-center">
             <div class='row'>
                 <a id="action" data-toggle="modal" data-target="#welcomeVid1"><div id="bam">
                     <h1>INTRODUCING THE SOLLARS HOME</h1>
@@ -478,6 +487,7 @@
 				
 				
 		</section>	
+</div>
 		 
     <!-- ++++++++++++++++ Modal Video: Intro Video +++++++++++++++++++++ -->    
         <div class="modal fade videoPops" id="welcomeVid1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -622,7 +632,7 @@
 			</div>            
  	<!--  ================ /Language ============================-->
        
-	<main>
+	<div id="main">
 
    
         
@@ -638,7 +648,7 @@
      <section id="" class="contact-main text-center white">
 			<h2>SCHEDULE A FREE CONSULTATION</h2>
                 <img src="img/our-vision/greenLine.png" width="98" height="11" alt="WhiteLine">
-                <button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button>
+                <a ref="tel:+18447655277"><button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button></a>
 
 			
 			<form id="eForm" action="mailer.php" method="POST">
@@ -666,15 +676,20 @@
 						</div><!-- /col TWO -->							
 					</div><!-- /row TWO -->
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
 							<br>
 							<input type="text" class="inputs" id="name" name="subject" placeholder="SUBJECT">
+						</div><!-- /col TWO -->	
+                        <div class="col-sm-6">
+							<br>
+							<input type="text" class="inputs" id="name" name="city" placeholder="Site Location (City)">
 						</div><!-- /col TWO -->		
+
                     </div>
 					<div class="row">
 						<div class="col-sm-12">
 							<br>
-							<textarea class="inputs" name="message" id="message" placeholder="MESSAGE"></textarea><br>
+							<textarea class="inputs" name="message" id="message" placeholder="TELL US MORE ABOUT YOUR PROJECT HERE"></textarea><br>
 						</div><!-- /text area -->								
 					</div><!-- /row THREE -->					
 				</div><!-- /container -->	
@@ -702,7 +717,7 @@
      <section id="" class="contact-main text-center white">
 			<h2>SOLLARS EMAIL NEWSLETTER</h2>
                 <img src="img/our-vision/greenLine.png" width="98" height="11" alt="WhiteLine">
-                <button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button>
+                <a ref="tel:+18447655277"><button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button></a>
 
 			
 			<form id="eForm" action="sender.php" method="POST">
@@ -740,6 +755,11 @@
   </div>
 </div>
         
+        <style>
+            #patent button#consult {
+                width: 225px;
+            }
+        </style>
         
 <!--  ================ patented-technology ============================-->
 		<section id="patent" class="greenMe text-center">
@@ -1285,6 +1305,7 @@ Raymond was born and raised in Northern California and has a Bachelors of Scienc
 		<section id="contact" class="contact-main text-center white">
 			<h1>CONTACT US</h1>
 			<img src="img/our-vision/greenLine.png" width="98" height="11" alt="WhiteLine">
+            <a ref="tel:+18447655277"><button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button></a>
 			
 			<form id="eForm" action="mailer.php" method="POST">
 				<div class="text-center">			
@@ -1395,7 +1416,7 @@ Raymond was born and raised in Northern California and has a Bachelors of Scienc
 		</footer>
 <!--  ================ /footer ============================-->
 	
-	</main>	
+	</div>	
 	
 
 		
@@ -1444,7 +1465,16 @@ Raymond was born and raised in Northern California and has a Bachelors of Scienc
 			        trigger : 'hover',
     			 });
             });
-        </script>
+                
+        //Development mode
+        function windSD (){
+            document.getElementById("mobileDebug").innerHTML = document.body.clientWidth;
+            return true;
+        }
+        window.addEventListener("resize",  windSD);
+
+        //windSD();  
+    </script>
 	
 			
     </body>

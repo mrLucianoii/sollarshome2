@@ -74,11 +74,16 @@ ul{
 	list-style: none;
 	padding-left: 0;	
 }
-main {
+#main, #topBlock {
 	display: block;
     position: relative;
+    top: 0;
+    height: 100%;
 }
-section {
+#topBlock {
+    overflow: hidden;
+}
+section,  {
 	position: static;
 	width: 100%;
     height: 100%;
@@ -209,6 +214,15 @@ body, html {
         margin-top
     }
 }
+
+.play-btn {
+    display: block;
+    width: 56px;
+    height: 56px;
+    margin: auto;
+    margin-top: 33px;
+}
+/*
 .btn-call2 {
     font-size: 9px;
     font-weight: 400;
@@ -218,19 +232,13 @@ body, html {
     border: none;
     padding-top: 7px;
     padding-bottom: 7px;
+    min-width: 100px;
 }
 .btn-call2:nth-child(2){
     border:solid 1px #4caf50;
     background-color: transparent;
     color: #4caf50;
-}
-.play-btn {
-    display: block;
-    width: 56px;
-    height: 56px;
-    margin: auto;
-    margin-top: 33px;
-}
+}*/
 
 #bam {
     display: inline-block;
@@ -906,7 +914,7 @@ button#consult  {
 	padding: 10px 27px 10px;
 	z-index: 105;
 	font-size: 17px;
-	width: 200px;
+	width: auto;
 	height: fixed;
 }
 
@@ -1521,8 +1529,8 @@ h3#youKnow {
 	padding-top: 50px;
 }
 .customer-box {
-	width: 45%;
-	padding: 13px 15px 30px 15px;
+	width: auto;
+/*	padding: 13px 15px 30px 15px; */
 	background:url('../img/who-we-serve/trans.png') no-repeat fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1536,6 +1544,7 @@ h3#youKnow {
 	margin-right: auto;
 	border-radius: 1.5px;
     color: #ffffff;
+    padding: 27px;
 }
 .customer-box p{
     font-family: "Helvetica Neue", Helvetica , arial, sans-serif;
@@ -1839,9 +1848,15 @@ p#rad50{
 
 }
 .contact-main button {
+    display: block;
+    position: relative;
+    left: 0;
+    right: 0; 
+    margin-left: auto;
+    margin-right: auto;
 	background-color: #4caf50;
 	border: none;
-	margin-top: 77px;
+	margin-top: 29px;
 	padding: 10px 27px 10px;	
 }
 .contact-main button:hover {

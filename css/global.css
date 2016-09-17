@@ -68,7 +68,7 @@ ul{
 	list-style: none;
 	padding-left: 0;	
 }
-main {
+#main {
 	display: block;
 }
 section {
@@ -87,6 +87,27 @@ button {
     font-family: "Helvetica Neue", Helvetica , arial, sans-serif;
     font-weight: 900;
     color: #ffffff;
+}
+/* Modal Close Override */
+.close {
+    opacity: 1.0;
+}
+
+.btn-call2 {
+    font-size: 9px;
+    font-weight: 400;
+    margin-top: 41px;
+    background-color: #4caf50;
+    border-radius: 3px;
+    border: none;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    min-width: 187px;
+}
+.btn-call2:nth-child(2){
+    border:solid 1px #4caf50;
+    background-color: transparent;
+    color: #4caf50;
 }
 .out {
 	font-family: 'Open Sans', sans-serif;
@@ -700,7 +721,7 @@ button#lastVid{
 		font-size: 9px;
 	}
 }
-@media (max-width: 1160px){
+@media (max-width: 1423px){
 	#navWords {
 		display: none;
     }	
@@ -709,7 +730,7 @@ button#lastVid{
 			right: 34px;
 			cursor: pointer;
 			display: block;
-			z-index: 2002;
+			z-index: 900;
 		}						
 }
 @media (max-width: 768px){

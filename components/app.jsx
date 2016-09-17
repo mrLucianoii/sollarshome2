@@ -22,7 +22,7 @@ var basePath = "img/press-logos/",
 var Articles = React.createClass({
   render: function() {
       var pressList = pressItems.map(function(obj, i){
-          return <li key={i} ><a href={ obj.url }><img id={"pressLogo" + i} src={ basePath + obj.file }/></a></li>;  
+          return <li key={i} ><a href={ obj.url }><img id={"pressLogo" + i} src={ basePath + obj.file }></a></li>;  
       });
 
      return <ul > { pressList } </ul>;

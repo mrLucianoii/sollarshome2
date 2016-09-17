@@ -255,7 +255,6 @@ jQuery(document).ready(function ($) {
     
 
    /* $window.on('scroll', function(e){
-
         var $windowTop = $window.scrollTop();
         var $divTop = $('.carousel').offset().top;
         var $divTop = $('.carousel').offset().top;
@@ -263,7 +262,6 @@ jQuery(document).ready(function ($) {
         /*if($windowTop <= $divTop){
             $('#menu-toggle').addClass('on');
             $('.navbar').removeClass('off');
-
         }
         else{
            $('.navbar').addClass('off');
@@ -459,42 +457,6 @@ jQuery(document).ready(function ($) {
             window.location.hash = target;
         });
     });
- 
-    $('#ques a[href^="#"]').on('click', function (e) {
-        
-        console.log("Inside Ques func");
-        
-	    e.preventDefault();
-        $(document).off("scroll");
-      
-        var target = this.hash,
-            menu = target,
-		$target = $("#ans "+target),
-		targetPos = $target.offset().top-110;
-		
-        $('html, body').animate({
-            scrollTop: 1300
-        }, 500);
-        
-        console.log("End Ques func.  Target: " + $target + " and pos " + targetPos);
-        console.log("mene var: " + target + " & its hash: " + this.hash)
-
-    });
-	
-    $('#ans a[href^="#"]').on('click', function (e) {
-	    e.preventDefault();
-        $(document).off("scroll");
-      
-        var target = this.hash,
-            menu = target,
-		$target = $(target),
-		targetPos = $target.offset().top-700;
-		
-        $('html, body').animate({
-            'scrollTop': targetPos
-        }, 500, 'swing', function () {
-        });
-    });
 	
 	var $expander = $("#menu-toggle"),
 		$navWrap = $("#sidebar-wrapper"),
@@ -504,7 +466,7 @@ jQuery(document).ready(function ($) {
 		$mLC = $("#logo-center"),
 		$mLL = $("#logo-left"),
 		$contWrap = $("#content-wrapper"),
-	   $mainSec = $("main section");
+	   $mainSec = $("#main section");
 		
    
     $navCl.click(function(e) {
@@ -527,7 +489,7 @@ jQuery(document).ready(function ($) {
 		
     $expander.click(function(e) {
 		
-		var secPos = ($('main section').offset().top - 10);
+		var secPos = ($('#main section').offset().top - 10);
 		
 		
 	    if ($(this).scrollTop() > secPos && !$mNav.hasClass('srnkNav')) {
@@ -704,4 +666,3 @@ jQuery(document).ready(function ($) {
     console.log('We made it to the end');
     
 });
-

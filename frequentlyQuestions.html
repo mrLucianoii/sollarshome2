@@ -75,7 +75,7 @@
         <![endif]-->    
   
 <div id="content-wrapper" class="toggled">
-	        <div id="sidebar-wrapper" class="">
+	    <div id="sidebar-wrapper" class="">
 	            <ul role="navigation" class="sidebar-nav">
 	                <li class="sidebar-brand">
 	                    <a href="index.html">
@@ -181,7 +181,7 @@
 
                     <li>
                         <button class="btn-call2">FREE CONSULTATION</button>
-                        <button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button>
+                        <a ref="tel:+18447655277"><button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button></a>
 
                     </li>
 	             </ul>
@@ -193,22 +193,21 @@
         	 
     </div>
 	<!--  ================ /landing ============================-->
-	<main>
 		<!--  ================ patented-technology ============================-->
-				<section id="patent" class="greenMe text-center">
+				<!--<section id="patent" class="greenMe text-center">
 					<h1>FREQUENTLY ASKED QUESTIONS</h1>
-			<!--		<h2>Multi-Flex Forming Technology™</h2> -->
+			<!--		<h2>Multi-Flex Forming Technology™</h2> 
 					<img src="img/patented/whiteLine.png" width="98" height="11" alt="WhiteLine">
 					<h3>Our revolutionary technology allows us to cast our buildings from concrete--with floor, walls, and roof all poured at your site on the same day.</h3>
 			
                     
-				</section>	
+				</section>	-->
 		<!--  ================ /patented-technology ============================-->
 		<div id="consultation" class="text-center">
 			<button id="consult" data-toggle="modal" data-target="#freeConsult">SCHEDULE A FREE CONSULTATION</button>
 		</div>
         <!-- Modal -->
-<div class="modal fade" id="freeConsult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade" id="freeConsult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -405,7 +404,32 @@
 			  </div>
 			</div>            
  	<!--  ================ /Language ============================-->
-       
+    
+    <style>
+        #main{
+            position: absolute;
+            top: 0;
+        }
+        #patent {
+            padding-bottom: 0;
+        }
+        #products {
+            padding-top: 73px;
+        }
+    </style>
+  <div id="main">
+      <!--  ================ patented-technology ============================-->
+				<section id="patent" class="greenMe text-center">
+					<h1>FREQUENTLY ASKED QUESTIONS</h1>
+			<!--		<h2>Multi-Flex Forming Technology™</h2> -->
+					<img src="img/patented/whiteLine.png" width="98" height="11" alt="WhiteLine">
+					<h3 style="color:#ffffff">Our revolutionary technology allows us to cast our buildings from concrete--with floor, walls, and roof all poured at your site on the same day.</h3>
+			
+				</section>	
+		<!--  ================ /patented-technology ============================-->
+        <div id="consultation" class="text-center">
+			<button id="consult" data-toggle="modal" data-target="#freeConsult">SCHEDULE A FREE CONSULTATION</button>
+		</div>
 
 <!--  ================ Products ============================-->
 		<section id="products" class="white text-center">
@@ -415,36 +439,37 @@
 				<div id="ques" class="row text-left">
 					<div class="col-sm-6">
 						<ol>
-							<h2><li><a href="#one">How is a Sollars Home™ different than a plain old wooden home (POWH)?</a></li></h2>
-							<h2><li><a href="#two">Do you have examples of the types of buildings that can be built with concrete? 
+							<h2><li><a class="scrollTo" data-scrollTo="one" href="#">How is a Sollars Home™ different than a plain old wooden home (POWH)?</a></li></h2>
+							<h2><li><a class="scrollTo" data-scrollTo="two" href="#">Do you have examples of the types of buildings that can be built with concrete? 
 </a></li></h2>
-							<h2><li><a href="#three">Are the Sollars Homes™ offered on this website the only buildings you sell?
+							<h2><li><a class="scrollTo" data-scrollTo="three" href="#">Are the Sollars Homes™ offered on this website the only buildings you sell?
 </a></li></h2>
-							<h2><li><a href="#four">How do we build a Sollars Home™?
+							<h2><li><a class="scrollTo" data-scrollTo="four" href="#">How do we build a Sollars Home™?
 </a></li></h2>
-							<h2><li><a href="#five">What is the approximate time frame for a project?
+							<h2><li><a class="scrollTo" data-scrollTo="five" href="#">What is the approximate time frame for a project?
 </a></li></h2>								
-							<h2><li><a href="#six">What is the temperature like in a Sollars Home™? 
+							<h2><li><a class="scrollTo" data-scrollTo="six" href="#">What is the temperature like in a Sollars Home™? 
 </a></li></h2>										
-							<h2><li><a href="#seven">What happens to a Sollars Home™ when the concrete cracks?  Will it leak?
+							<h2><li><a class="scrollTo" data-scrollTo="seven" href="#">What happens to a Sollars Home™ when the concrete cracks?  Will it leak?
 </a></li></h2>
 	
 						</ol>	
 					</div>
 					<div class="col-sm-6">
 						<ol>
-							<h2><li value="8"><a href="#eight">Are Sollars Homes™ safer than plain old wooden homes? 
+							<h2><li value="8"><a class="scrollTo" data-scrollTo="eight" href="#">Are Sollars Homes™ safer than plain old wooden homes? 
 </a></li></h2>
-							<h2><li><a href="#nine">Can you hang items on the walls around the house? 
+							<h2><li><a class="scrollTo" data-scrollTo="nine" href="#">Can you hang items on the walls around the house? 
 </a></li></h2>
-							<h2><li><a href="#ten">What are some of the added benefits of building with concrete? 
+							<h2><li><a class="scrollTo" data-scrollTo="ten" href="#">What are some of the added benefits of building with concrete? 
 </a></li></h2>
-							<h2><li><a href="#eleven">Can you remodel a Sollars Home™? 
+							<h2><li><a  class="scrollTo" data-scrollTo="eleven" href="#">Can you remodel a Sollars Home™? 
 </a></li></h2>								
-							<h2><li><a href="#twelve">How would it react to an earthquake? Fire? Termites? 
+							<h2><li><a  class="scrollTo" data-scrollTo="twelve" href="#">How would it react to an earthquake? Fire? Termites? 
 </a></li></h2>						
-							<h2><li><a href="#thirteen">How do the plumbing and electrical work in conjunction with the concrete walls? 
+							<h2><li><a  class="scrollTo" data-scrollTo="thirteen" href="#">How do the plumbing and electrical work in conjunction with the concrete walls? 
 </a></li></h2>						
+                           
 
 						</ol>
 					</div>	
@@ -615,6 +640,7 @@ Home™</p>
 		<section id="contact" class="contact-main text-center white">
 			<h1>CONTACT US</h1>
 			<img src="img/our-vision/greenLine.png" width="98" height="11" alt="WhiteLine">
+            <a ref="tel:+18447655277"><button class="btn-call2"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 1-844-SOLLARS</button></a>
 			
 			<form id="eForm" action="mailer.php" method="POST">
 				<div class="text-center">			
@@ -708,20 +734,21 @@ Home™</p>
 		</footer>
 <!--  ================ /footer ============================-->
 	
-	</main>	
-	
+	</div>     
+
 
 		
 </div> <!-- /Nav Wrapper -->
 		
 
 
-    <script src="js/lib/jquery.min.js"></script>
-    <script src="js/lib/modernizr.custom.min.js"></script>
+     <script src="js/lib/jquery.min.js"></script>
+   <script src="js/lib/modernizr.custom.min.js"></script>
   	<script src="js/vendor/bootstrap.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js"></script>
-	<script src="js/jquery-ui.js"></script>	
-   	<script src="js/main.js"></script>
+    <script type="text/babel" src="components/app.jsx"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script> 
+   	<script src="js/jquery-ui.js"></script>
+   	<script src="js/main.js"></script> -
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -744,7 +771,36 @@ Home™</p>
             })(document,"script","hs-analytics",300000);
         </script>
                 
-            <!-- End of Async HubSpot Analytics Code -->
-			
+    <!-- End of Async HubSpot Analytics Code -->
+	
+        <script>
+       // on click event on all anchors with a class of scrollTo
+            $('a.scrollTo, #ans a[href^="#"]').on('click', function(){
+            //    console.log('scrollTo hi');
+               // console.log($(this).parentNode.id);
+              //  console.log($(this));
+              // data-scrollTo = section scrolling to name
+                //* Bool go up or go down 
+                if ($(this)[0].className == "scrollTo"){
+                    var scrollTo =  $(this).attr('data-scrollTo'),
+                    scrollPos = $("#" + scrollTo).offset().top -70;
+
+                }else {
+                    var scrollPos = $('[data-scrollTo="'+$(this)[0].parentNode.id+'"]').offset().top -83;                    
+                }
+                
+              // animate and scroll to the sectin 
+              $('body, html, main2, section').animate({
+
+                // the magic - scroll to section
+                "scrollTop": scrollPos
+              }, 1000 );
+                console.log("scrollTo: " + scrollPos.offset().top);
+              return false;
+
+            });
+ 
+        </script>
+        
     </body>
 </html>
