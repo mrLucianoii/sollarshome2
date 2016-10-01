@@ -17,12 +17,18 @@ var basePath = "img/press-logos/",
       file: "businessWireLogo.png",
       url:  "http://www.businesswire.com/news/home/20160608005412/en/Sollars-Home™-Develops-Revolutionary-Building-Method-Crafting",
       quote:"http://www.businesswire.com/news/home/20160608005412/en/Sollars-Home™-Develops-Revolutionary-Building-Method-Crafting" 
+    },
+     {
+      name: "Concrete Products",
+      file: "concreteproducts_logo.png",
+      url:  "http://www.concreteproducts.com/news/news-scope/9983-sf-bay-area-builder-develops-new-method-for-crafting-concrete-homes.html#.V-_FwzKZORt",
+      quote:"http://www.businesswire.com/news/home/20160608005412/en/Sollars-Home™-Develops-Revolutionary-Building-Method-Crafting" 
     }];
 
 var Articles = React.createClass({
   render: function() {
       var pressList = pressItems.map(function(obj, i){
-          return <li key={i} ><a href={ obj.url }><img id={"pressLogo" + i} src={ basePath + obj.file }></a></li>;  
+          return <li key={i} ><a href={ obj.url }><img id={"pressLogo" + i} src={ basePath + obj.file }/></a></li>;  
       });
 
      return <ul > { pressList } </ul>;

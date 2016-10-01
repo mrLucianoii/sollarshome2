@@ -631,7 +631,7 @@ button#lastVid{
 	margin-right: auto;
 
 }
-#pressRel #pressLogo0 {
+#pressRel #pressLogo0, #pressRel #pressLogo2 {
 	margin-top: 26px;
 	width: auto;
 	height: 43px;
@@ -639,6 +639,7 @@ button#lastVid{
 #pressRel #pressLogo1 {
 	width: auto;
 	height: 73px;
+    padding-right: 13px;
 }
 #pressRel ul {
 	position: relative;
