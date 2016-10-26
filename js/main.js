@@ -343,7 +343,7 @@ jQuery(document).ready(function ($) {
 
                 break;        
             case 'player3':
-                stopVideo(player3);
+                stopTube(player3);
                 $('#emailCatcher').modal('show');
 
                 break;
@@ -470,11 +470,11 @@ jQuery(document).ready(function ($) {
 		
    
     $navCl.click(function(e) {
-        $mNav.removeClass('srnkNav');
-        $mNav.removeClass('entNav');
+    $mNav.removeClass('srnkNav');
+    $mNav.removeClass('entNav');
 		$expander.fadeIn("4500").css("display", "block");
         e.preventDefault();
-        $contWrap.toggleClass("toggled");
+    $contWrap.toggleClass("toggled");
 		
 		if ( $window.width() < 650) {
            $navWrap.css("margin-right", "-250px");
@@ -509,7 +509,7 @@ jQuery(document).ready(function ($) {
 				
 		$expander.fadeOut("4500");
  		e.preventDefault();
-        $navWrap.css("margin-right", "250px");
+    $navWrap.css("margin-right", "250px");
 		
      });
 	 
@@ -517,6 +517,7 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         $contWrap.toggleClass("toggled");
     });
+  
     function patentClick (clName) {
         clName.on('mouseover', function(e) {
             e.preventDefault();

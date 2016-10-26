@@ -50,8 +50,10 @@
     
 }
 section.greenMe {
+    position: relative;
     padding-top: 83px;
-    padding-bottom: 17px
+    padding-bottom: 17px;
+    z-index: 700;
     
 }
 #filter {
